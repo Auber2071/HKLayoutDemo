@@ -14,6 +14,11 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - CTMediator (48)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - JSONModel (1.8.0)
   - Masonry (1.1.0)
   - MJExtension (3.2.1)
   - MJRefresh (3.3.1)
@@ -24,6 +29,9 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - CTMediator
+  - FMDB
+  - JSONModel
   - Masonry
   - MJExtension
   - MJRefresh
@@ -33,6 +41,9 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - CTMediator
+    - FMDB
+    - JSONModel
     - Masonry
     - MJExtension
     - MJRefresh
@@ -41,12 +52,15 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  CTMediator: 3f3578b525b3a46a7a2f92a99922ec40363f4269
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
 
-PODFILE CHECKSUM: 4e2e23e3c1cce2c778c43c65703caa160287f7ec
+PODFILE CHECKSUM: 76f6f1bc2a6ea942f2295c37e98d48fa3fab1c20
 
 COCOAPODS: 1.11.3
