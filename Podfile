@@ -44,7 +44,7 @@ target 'HKLayoutDemo' do
   pod 'Masonry'
   pod 'SDWebImage'
   pod 'AFNetworking'
-#  pod 'JSONKit'
+  pod 'JSONModel'
   pod 'MJRefresh'
   pod 'MJExtension'
   pod 'SwiftLint', configurations: ['Debug']
