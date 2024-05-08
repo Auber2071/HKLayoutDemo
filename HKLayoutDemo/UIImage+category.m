@@ -1,5 +1,5 @@
 //
-//  UIImage+category.m
+//  UIImage+Category.m
 //  BookReader
 //
 //  Created by mythlink on 10-11-17.
@@ -8,8 +8,11 @@
 
 #import "UIImage+category.h"
 #import <ImageIO/ImageIO.h>
+#import <objc/runtime.h>
 
-@implementation UIImage (category)
+static char code3Key;
+
+@implementation UIImage (Category)
 
 
 - (UIImage *)scaleWithSize:(CGSize)newSize

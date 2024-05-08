@@ -1,0 +1,29 @@
+//
+//  PrefixHeader.pch
+//  HKLayoutDemo
+//
+//  Created by ALPS on 2024/3/14.
+//  Copyright © 2024 Edward. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "HKLayoutDemo-Swift.h"
+
+#import "UINavigationController+Push.h"
+#import "NSObject+MethodSwizzling.h"
+#import "NSObject+KVCDefender.h"
+#import "NSObject+KVODefender.h"
+#import "NSObject+SelectorDefender.h"
+#import "NSTimer+WeakTimer.h"
+#import "UIImage+Category.h"
+#import "UIView+Rect.h"
+
+
+#import "Weakify.h"
+
+#endif /* PrefixHeader_pch */

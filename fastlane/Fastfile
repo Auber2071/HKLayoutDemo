@@ -1,0 +1,249 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+
+################## READ  FIRST ##################
+# lane action: pgy_debug、pgy_release、fir_debug、fir_release、appStore_iOS、testFlight_iOS
+###如果需要上传到蒲公英，请运行前先安装插件安装蒲公英的fastlane add_plugin pgyer ###
+
+######## 使用方法1 自定义version和build #########
+###### fastlane iosDebug version:1.0.1  build:1 ######
+
+######## 使用方法2 不写version和build 这时build会根据之前的build+1 #########
+###### fastlane iosDebug  ######
+
+
+
+default_platform(:iOS)   # 设置默认的平台为iOS
+
+############# 需要根据项目自定义设置 ############
+APP_NAME = "HKLayoutDemo"             #输出包时app的名字
+APP_SCHEME = "HKLayoutDemo"   #这个app打开manage schemes下选中的名称
+APP_IPA_OUTPUT_DIRECTORY = "/Users/alps/Desktop/IPA"    # 打包所保存的文件目录，可以不设置
+# 配置蒲公英的apiKey 和 userKey 需要设置 
+APP_PGYER_API_KEY = "f444400ae55f3ded307828c730c51867"
+APP_PGYER_USER_KEY = "772b5c05615d1c5c954e38762a143d67"
+# 配置fir的token
+APP_FIR_API_TOKEN = "xx"
+
+
+######## 不用设置的 #####################
+APP_XCODEPROJ = "#{APP_NAME}.xcodeproj"      # app的xcodeproj
+APP_WORKSPACE = "#{APP_NAME}.xcworkspace"    # app的xcworkspace
+APP_IPA_TIME = Time.now.strftime("%Y-%m-%d_%H:%M")  # 打包的时间
+APP_ENV_PREFIX = ""   # 打包完成后的包文件名字的前缀 区别release和debug
+
+
+
+# 版本 build number++
+def prepare_version(options)
+
+    #增加version版本号
+    if options[:version]
+      increment_version_number(
+        version_number: options[:version],
+        xcodeproj: "#{APP_XCODEPROJ}",
+      )
+    else
+      # 可以不设置
+    end
+
+
+    #增加build号  只能是整数和浮点数
+    if options[:build]
+      increment_build_number(
+        build_number: options[:build],
+        xcodeproj: "#{APP_XCODEPROJ}",
+      )
+    else
+      last_build = get_build_number(xcodeproj: "#{APP_XCODEPROJ}")
+      now_build = last_build.to_i + 1
+      increment_build_number(
+        build_number: now_build,
+        xcodeproj: "#{APP_XCODEPROJ}",
+      )
+    end
+end
+
+
+#统一的打包方法
+def generate_ipa(exportMethod,configuration,options)
+
+    # 设置version和build
+    prepare_version(options)  
+    # 得到最新的version
+    app_version = get_version_number(target: "#{APP_SCHEME}")     
+    # 最新的build
+    app_build = get_build_number(xcodeproj: "#{APP_XCODEPROJ}")         
+    # app包名
+    app_ipa_name = "#{APP_NAME}_" "#{APP_ENV_PREFIX}_" + "#{APP_IPA_TIME}_" + "version#{app_version}_" + "build#{app_build}"
+
+    #打包
+    gym(
+      clean: true,       # 打包前clean项目
+      silent: true,      # 隐藏没有必要的信息
+      scheme: "#{APP_SCHEME}",
+      workspace: "#{APP_WORKSPACE}", 
+      configuration: "#{configuration}",  # 环境 debug、release
+      export_method: "#{exportMethod}",   # app-store、ad-hoc、development、enterprise
+      output_directory: "#{APP_IPA_OUTPUT_DIRECTORY}", #ipa的存放目录
+      output_name: "#{app_ipa_name}", # 输出ipa的文件名
+      # 生成的ipa文件是否包含symbols，这个文件是内存标记文件，用来定位错误信息的，有了这个安装包大小会变大
+      include_symbols: true,
+      # 生成的ipa文件是否包含bitcode,在本身项目中也可以配置
+      include_bitcode: false,
+      # keychain授权 Xcode9不允许访问钥匙串密码，所以我们需要手动开权限
+      export_xcargs: "-allowProvisioningUpdates"
+      )
+
+end
+
+platform :iOS do
+  # before_all就是先于所有lane执行的任务
+  before_all do
+       # 根据安装路径指定要使用的Xcode 
+       xcode_select "/Applications/Xcode.app"
+       # 超时失败，默认的timeout是10秒
+       ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "120"
+       # Appfile设置了可以忽略下面的证书设置
+       # 这个action很重要cert就是下载和安装匹配的Provision Profile文件，不用你去管那些证书不匹配的事情了
+       # cert(
+          # Appfile设置了这边就可以不用了
+          # username: "xxx@xx.com",
+          # team_id: "xxxxxxx",
+          # output_path:"#{APP_CERT_OUTPUT_DIRECTORY}"
+        # )
+
+       #这一步就是签名了
+       # sigh(
+         # Appfile设置了这边就可以不用了 
+         # app_identifier: ENV["APP_IDENTIFIER"],
+         # team_id: ENV['TEAM_ID'],
+
+         # 更新开发证书而不是生产证书
+         # development: ???  
+         # 因为是根据BundleID下载，导致adhoc和appstore会优先appstore，导致最后导出报错，如果是adhoc包请设置为true
+         # adhoc: true, 
+         # 设置所生成描述文件的名称，必须包含文件类型后缀.mobileprovision 可以不设置
+         # filename: "MyTest.mobileprovision",
+
+        #  force:true,
+        #  provisioning_name: 'MyTest AppStore',
+        #  ignore_profiles_with_different_name: true,
+        #  output_path: "build/sign",
+        # )
+  end
+
+  # lane  自定义的任务
+
+  #debug包 上传到蒲公英平台
+  #option类似一个字典 option[:version] 取其中value值version
+  lane :pgy_debug do |options|
+    APP_ENV_PREFIX = "ad-hoc"
+    generate_ipa("ad-hoc","Debug",options)
+
+    #上传至蒲公英 在这之前请安装插件 fastlane add_plugin pgyer
+    if APP_PGYER_API_KEY.length > 0 && APP_PGYER_USER_KEY.length > 0
+      pgyer(
+        api_key: "#{APP_PGYER_API_KEY}",
+        # userKey: "#{APP_PGYER_USER_KEY}",
+        password: "hk123456",
+        install_type: "2"
+      )
+    notification(title: "发布成功!", message: "已成功上传到蒲公英平台, 赶快联系测试人员开始测试吧!", open: "https://www.pgyer.com/")
+    end
+  end
+
+  #release 上传到蒲公英平台
+  lane :pgy_release do |options|
+    APP_ENV_PREFIX = "ad-hoc"
+    generate_ipa("ad-hoc","Release",options)
+
+    #上传至蒲公英 在这之前请安装插件 fastlane add_plugin pgyer
+    if APP_PGYER_API_KEY.length > 0 && APP_PGYER_USER_KEY.length > 0
+      pgyer(
+        api_key: "#{APP_PGYER_API_KEY}",
+        # userKey: "#{APP_PGYER_USER_KEY}",
+        password: "hk123456",
+        install_type: "2"
+      )
+    notification(title: "发布成功!", message: "已成功上传到蒲公英平台, 赶快联系测试人员开始测试吧!", open: "https://www.pgyer.com/")
+    end
+  end
+
+ #debug包 上传到fir
+  lane :fir_debug do |options|
+    APP_ENV_PREFIX = "ad-hoc"
+    generate_ipa("ad-hoc","Release",options)
+
+    #上传至fir 在这之前请安装插件 fastlane add_plugin firim
+    if APP_FIR_API_TOKEN.length > 0 
+      firim(
+        firim_api_token: "#{APP_FIR_API_TOKEN}", 
+      )
+    notification(title: "发布成功!", message: "已成功上传到fir平台, 赶快联系测试人员开始测试吧!", open: "https://fir.im/apps")
+    end
+  end
+
+  #release 上传到fir
+  lane :fir_release do |options|
+    APP_ENV_PREFIX = "ad-hoc"
+    generate_ipa("ad-hoc","Release",options)
+
+    #上传至fir 在这之前请安装插件 fastlane add_plugin firim
+    if APP_FIR_API_TOKEN.length > 0 
+      firim(
+        firim_api_token: "#{APP_FIR_API_TOKEN}", 
+      )
+    notification(title: "发布成功!", message: "已成功上传到fir平台, 赶快联系测试人员开始测试吧!", open: "https://fir.im/apps")
+    end
+  end
+
+  # release发布包
+  lane :appStore_iOS do |options|
+    APP_ENV_PREFIX = "appstore_"
+    generate_ipa("app-store","Release",options)
+    # 上传至app-store
+    deliver(
+      force: true,              #是否跳过HTML验证报告，默认false
+      skip_metadata: true,      #是否跳过上传metadata，默认false
+      skip_screenshots: true    #是否跳过上传屏幕截图，默认false
+    )
+    notification(title: "发布成功!", message: "已成功发布到appstore, 请查验!", open: "https://itunesconnect.apple.com")
+  end
+
+  # testFlight包
+  lane :testFlight_iOS do |options|
+    APP_ENV_PREFIX = "adhoc_"
+    generate_ipa("ad-hoc","Release",options)
+    # 管理TestFlight的测试用户，上传二进制文件
+    pilot
+    notification(title: "发布成功!", message: "已成功发布到appstore, 请查验!", open: "https://itunesconnect.apple.com")
+  end
+
+
+
+  # 当lane执行完成之后进行哪些操作
+  after_all do |lane|
+  #发送一个桌面通知
+  notification(title: "execute success", subtitle: "执行成功!", message: "lane已经执行成功了")
+  end
+
+  error do |lane, exception|
+  puts("#{exception.message}")
+  notification(title: "执行#{lane}发生异常!", message: "发生异常, 详情请查看控制台!")
+  end
+
+end

@@ -1,0 +1,6 @@
+_main
+-[HKTestSearchController viewDidLoad]
+-[HKTestSearchController viewDidLayoutSubviews]
+_CGSizeMake
+-[HKTestSearchController label]
+-[HKTestSearchController clickButton3Action]

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B92" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Book" representedClassName="Book" syncable="YES" codeGenerationType="class">
+        <attribute name="isbm" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="page" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="borrowBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reader" inverseName="borrow" inverseEntity="Reader"/>
+    </entity>
+    <entity name="Reader" representedClassName="Reader" syncable="YES" codeGenerationType="class">
+        <attribute name="idCard" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="borrow" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="borrowBy" inverseEntity="Book"/>
+    </entity>
+</model>
