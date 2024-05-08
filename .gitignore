@@ -1,3 +1,9 @@
+*~
+.DS_Store
+*.xcuserdatad
+xcuserdata
+
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
@@ -39,13 +45,15 @@ Pods/
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
+# Checkouts是从Github上获取来的源码，所以理论上来说你在这个文件夹里对源码进行任何的修改，再次执行 carthage build 就会根据这里的源码打包出相应的framework出来。
+Carthage/Checkouts
 
+# Build中/iOS路径下的就是framework包，需要自行引用进来。
 Carthage/Build
 
 # fastlane
 #
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the 
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
 # screenshots whenever they are needed.
 # For more information about the recommended setup visit:
 # https://github.com/fastlane/fastlane/blob/master/docs/Gitignore.md
