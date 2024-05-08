@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		262B8C0B24C89278001EF1E0 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262B8C0A24C89278001EF1E0 /* ResultViewController.m */; };
+		262B8C0B24C89278001EF1E0 /* HKResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262B8C0A24C89278001EF1E0 /* HKResultViewController.m */; };
 		262B8C1424C89326001EF1E0 /* HKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262B8C1324C89326001EF1E0 /* HKNavigationController.m */; };
-		262B8C1724C895D6001EF1E0 /* UIImage+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 262B8C1624C895D6001EF1E0 /* UIImage+category.m */; };
-		262B8C1A24C8979F001EF1E0 /* HKTestSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262B8C1924C8979F001EF1E0 /* HKTestSearchController.m */; };
+		262B8C1724C895D6001EF1E0 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 262B8C1624C895D6001EF1E0 /* UIImage+Category.m */; };
+		262B8C1A24C8979F001EF1E0 /* HKSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262B8C1924C8979F001EF1E0 /* HKSearchViewController.m */; };
 		262E7561277A15D1008CF8F5 /* HKTestSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E7560277A15D1008CF8F5 /* HKTestSwift.swift */; };
 		262E7564277A15F8008CF8F5 /* HKOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E7563277A15F8008CF8F5 /* HKOCViewController.m */; };
 		262E7566277A160C008CF8F5 /* HKSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E7565277A160C008CF8F5 /* HKSwiftViewController.swift */; };
@@ -19,22 +19,51 @@
 		2B0FA1322085C8840041FBE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0FA1312085C8840041FBE2 /* Assets.xcassets */; };
 		2B0FA1352085C8840041FBE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B0FA1332085C8840041FBE2 /* LaunchScreen.storyboard */; };
 		2B0FA1382085C8840041FBE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FA1372085C8840041FBE2 /* main.m */; };
-		2B86A6532086ECD40040A6F1 /* NormalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A6522086ECD40040A6F1 /* NormalViewController.m */; };
-		2B86A6562086ECE40040A6F1 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A6552086ECE40040A6F1 /* ScrollViewController.m */; };
-		2B86A6592086ECED0040A6F1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A6582086ECED0040A6F1 /* TableViewController.m */; };
-		2B86A65C2086ECF60040A6F1 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A65B2086ECF60040A6F1 /* CollectionViewController.m */; };
+		2B86A6532086ECD40040A6F1 /* HKNormalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A6522086ECD40040A6F1 /* HKNormalViewController.m */; };
+		2B86A6562086ECE40040A6F1 /* HKScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A6552086ECE40040A6F1 /* HKScrollViewController.m */; };
+		2B86A6592086ECED0040A6F1 /* HKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A6582086ECED0040A6F1 /* HKTableViewController.m */; };
+		2B86A65C2086ECF60040A6F1 /* HKCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A65B2086ECF60040A6F1 /* HKCollectionViewController.m */; };
 		2B86A65F2086ED650040A6F1 /* HKDefineTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A65E2086ED650040A6F1 /* HKDefineTabBarController.m */; };
-		2B86A6672086EEF00040A6F1 /* ScorllView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A6662086EEF00040A6F1 /* ScorllView.m */; };
-		2B86A66A2086F18B0040A6F1 /* TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A6692086F18B0040A6F1 /* TableView.m */; };
-		2B86A66D2086F1950040A6F1 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A66C2086F1950040A6F1 /* TableViewCell.m */; };
-		54BF5CEF29C7E86400820B8B /* YSCOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF5CEE29C7E86400820B8B /* YSCOperation.m */; };
+		2B86A6672086EEF00040A6F1 /* HKScorllView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B86A6662086EEF00040A6F1 /* HKScorllView.m */; };
+		5428860A2B9EE827009317A8 /* HKPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542886092B9EE827009317A8 /* HKPDFViewController.m */; };
+		542887282BA2AF33009317A8 /* HKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542887272BA2AF33009317A8 /* HKBaseViewController.m */; };
+		5428872C2BA2B300009317A8 /* UINavigationController+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 5428872B2BA2B300009317A8 /* UINavigationController+Push.m */; };
+		54288AC02BA2CE4D009317A8 /* UIView+Rect.m in Sources */ = {isa = PBXBuildFile; fileRef = 54288ABF2BA2CE4D009317A8 /* UIView+Rect.m */; };
+		54288AC52BA2D5B7009317A8 /* HKOrientationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54288AC42BA2D5B7009317A8 /* HKOrientationViewController.m */; };
+		544B09712BCE19EB00FA50F6 /* HKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 544B09702BCE19EB00FA50F6 /* HKWebViewController.m */; };
+		545BDE392B1A171B00E08AB1 /* NSObject+KVODefender.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE382B1A171B00E08AB1 /* NSObject+KVODefender.m */; };
+		545BDE3F2B1A18D900E08AB1 /* NSObject+MethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE3E2B1A18D900E08AB1 /* NSObject+MethodSwizzling.m */; };
+		545BDE422B1A19D400E08AB1 /* HKKVCDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE412B1A19D400E08AB1 /* HKKVCDemo.m */; };
+		545BDE4B2B1A24BD00E08AB1 /* NSObject+SelectorDefender.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE4A2B1A24BD00E08AB1 /* NSObject+SelectorDefender.m */; };
+		545BDE4F2B1A2AB600E08AB1 /* NSObject+KVCDefender.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE4E2B1A2AB600E08AB1 /* NSObject+KVCDefender.m */; };
+		547092102BD018D5006160EF /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 5470920F2BD018D5006160EF /* AlamofireDynamic */; };
+		547092152BD01942006160EF /* C Primer Plus 第6版.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 547092142BD01942006160EF /* C Primer Plus 第6版.pdf */; };
+		547092192BD028CC006160EF /* HKTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547092182BD028CC006160EF /* HKTimerViewController.m */; };
+		5487F00E2BCE0D7800700FCF /* HKReadWhiteSafeDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5487F00D2BCE0D7800700FCF /* HKReadWhiteSafeDic.m */; };
+		54BF5CEF29C7E86400820B8B /* HKOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF5CEE29C7E86400820B8B /* HKOperation.m */; };
+		54CE89FD2B1601480089D7EF /* NSTimer+WeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CE89FC2B1601480089D7EF /* NSTimer+WeakTimer.m */; };
+		54D099AB2B2721CC000A0DCD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54D099A92B2721CC000A0DCD /* Model.xcdatamodeld */; };
 		54E322B529D057BB00E23DE1 /* HKLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E322B429D057BB00E23DE1 /* HKLayoutDemoTests.m */; };
 		54E322C229D057D100E23DE1 /* HKLayoutDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E322C129D057D100E23DE1 /* HKLayoutDemoUITests.m */; };
 		54E322C429D057D100E23DE1 /* HKLayoutDemoUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E322C329D057D100E23DE1 /* HKLayoutDemoUITestsLaunchTests.m */; };
-		F6A7C683EF78C8DD1D2F4D81 /* libPods-HKLayoutDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2626A78CC584C004AE77167 /* libPods-HKLayoutDemo.a */; };
+		9B6879CEA1909F4170B9F8F2 /* libPods-HKLayoutDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFD61D0A0FF8FDBE533C49 /* libPods-HKLayoutDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		54288AB42BA2C37D009317A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54288AAE2BA2C37D009317A8 /* PSPDFKit-lib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 780B4169146E7DAB00DF07F1;
+			remoteInfo = PSPDFKit;
+		};
+		54288AB62BA2C37D009317A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54288AAE2BA2C37D009317A8 /* PSPDFKit-lib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7824B14114A20A990053639E;
+			remoteInfo = "PSPDFKit-Demo";
+		};
 		54E322B629D057BB00E23DE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2B0FA11D2085C8830041FBE2 /* Project object */;
@@ -65,14 +94,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		262B8C0924C89278001EF1E0 /* ResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
-		262B8C0A24C89278001EF1E0 /* ResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		262B8C0924C89278001EF1E0 /* HKResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKResultViewController.h; sourceTree = "<group>"; };
+		262B8C0A24C89278001EF1E0 /* HKResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKResultViewController.m; sourceTree = "<group>"; };
 		262B8C1224C89326001EF1E0 /* HKNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKNavigationController.h; sourceTree = "<group>"; };
 		262B8C1324C89326001EF1E0 /* HKNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKNavigationController.m; sourceTree = "<group>"; };
-		262B8C1524C895D6001EF1E0 /* UIImage+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+category.h"; sourceTree = "<group>"; };
-		262B8C1624C895D6001EF1E0 /* UIImage+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+category.m"; sourceTree = "<group>"; };
-		262B8C1824C8979F001EF1E0 /* HKTestSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKTestSearchController.h; sourceTree = "<group>"; };
-		262B8C1924C8979F001EF1E0 /* HKTestSearchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKTestSearchController.m; sourceTree = "<group>"; };
+		262B8C1524C895D6001EF1E0 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
+		262B8C1624C895D6001EF1E0 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		262B8C1824C8979F001EF1E0 /* HKSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKSearchViewController.h; sourceTree = "<group>"; };
+		262B8C1924C8979F001EF1E0 /* HKSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKSearchViewController.m; sourceTree = "<group>"; };
 		262E755F277A15D1008CF8F5 /* HKLayoutDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HKLayoutDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		262E7560277A15D1008CF8F5 /* HKTestSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKTestSwift.swift; sourceTree = "<group>"; };
 		262E7562277A15F8008CF8F5 /* HKOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKOCViewController.h; sourceTree = "<group>"; };
@@ -88,32 +117,63 @@
 		2B0FA1342085C8840041FBE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B0FA1362085C8840041FBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B0FA1372085C8840041FBE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2B86A6512086ECD40040A6F1 /* NormalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalViewController.h; sourceTree = "<group>"; };
-		2B86A6522086ECD40040A6F1 /* NormalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalViewController.m; sourceTree = "<group>"; };
-		2B86A6542086ECE40040A6F1 /* ScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
-		2B86A6552086ECE40040A6F1 /* ScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
-		2B86A6572086ECED0040A6F1 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		2B86A6582086ECED0040A6F1 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		2B86A65A2086ECF60040A6F1 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
-		2B86A65B2086ECF60040A6F1 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		2B86A6512086ECD40040A6F1 /* HKNormalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKNormalViewController.h; sourceTree = "<group>"; };
+		2B86A6522086ECD40040A6F1 /* HKNormalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKNormalViewController.m; sourceTree = "<group>"; };
+		2B86A6542086ECE40040A6F1 /* HKScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKScrollViewController.h; sourceTree = "<group>"; };
+		2B86A6552086ECE40040A6F1 /* HKScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKScrollViewController.m; sourceTree = "<group>"; };
+		2B86A6572086ECED0040A6F1 /* HKTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKTableViewController.h; sourceTree = "<group>"; };
+		2B86A6582086ECED0040A6F1 /* HKTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKTableViewController.m; sourceTree = "<group>"; };
+		2B86A65A2086ECF60040A6F1 /* HKCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKCollectionViewController.h; sourceTree = "<group>"; };
+		2B86A65B2086ECF60040A6F1 /* HKCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKCollectionViewController.m; sourceTree = "<group>"; };
 		2B86A65D2086ED650040A6F1 /* HKDefineTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDefineTabBarController.h; sourceTree = "<group>"; };
 		2B86A65E2086ED650040A6F1 /* HKDefineTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDefineTabBarController.m; sourceTree = "<group>"; };
-		2B86A6652086EEF00040A6F1 /* ScorllView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScorllView.h; sourceTree = "<group>"; };
-		2B86A6662086EEF00040A6F1 /* ScorllView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScorllView.m; sourceTree = "<group>"; };
-		2B86A6682086F18B0040A6F1 /* TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableView.h; sourceTree = "<group>"; };
-		2B86A6692086F18B0040A6F1 /* TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableView.m; sourceTree = "<group>"; };
-		2B86A66B2086F1950040A6F1 /* TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
-		2B86A66C2086F1950040A6F1 /* TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
-		54BF5CED29C7E86400820B8B /* YSCOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCOperation.h; sourceTree = "<group>"; };
-		54BF5CEE29C7E86400820B8B /* YSCOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCOperation.m; sourceTree = "<group>"; };
+		2B86A6652086EEF00040A6F1 /* HKScorllView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKScorllView.h; sourceTree = "<group>"; };
+		2B86A6662086EEF00040A6F1 /* HKScorllView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKScorllView.m; sourceTree = "<group>"; };
+		34F83C3E5358DA524E73E221 /* Pods-HKLayoutDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HKLayoutDemo.debug.xcconfig"; path = "Target Support Files/Pods-HKLayoutDemo/Pods-HKLayoutDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		542886082B9EE827009317A8 /* HKPDFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKPDFViewController.h; sourceTree = "<group>"; };
+		542886092B9EE827009317A8 /* HKPDFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKPDFViewController.m; sourceTree = "<group>"; };
+		542887262BA2AF33009317A8 /* HKBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKBaseViewController.h; sourceTree = "<group>"; };
+		542887272BA2AF33009317A8 /* HKBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKBaseViewController.m; sourceTree = "<group>"; };
+		542887292BA2B07A009317A8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5428872A2BA2B300009317A8 /* UINavigationController+Push.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Push.h"; sourceTree = "<group>"; };
+		5428872B2BA2B300009317A8 /* UINavigationController+Push.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Push.m"; sourceTree = "<group>"; };
+		54288AAE2BA2C37D009317A8 /* PSPDFKit-lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "PSPDFKit-lib.xcodeproj"; path = "Frameworks/PSPDFKit/PSPDFKit-lib.xcodeproj"; sourceTree = "<group>"; };
+		54288AB82BA2C3DF009317A8 /* libPSPDFKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPSPDFKit.a; path = "../../Library/Developer/Xcode/DerivedData/HKLayoutDemo-esfhiadytrcofnfbfbdzxtdfpmxv/Build/Products/Debug-iphonesimulator/libPSPDFKit.a"; sourceTree = "<group>"; };
+		54288ABE2BA2CE4D009317A8 /* UIView+Rect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Rect.h"; sourceTree = "<group>"; };
+		54288ABF2BA2CE4D009317A8 /* UIView+Rect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Rect.m"; sourceTree = "<group>"; };
+		54288AC32BA2D5B7009317A8 /* HKOrientationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKOrientationViewController.h; sourceTree = "<group>"; };
+		54288AC42BA2D5B7009317A8 /* HKOrientationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKOrientationViewController.m; sourceTree = "<group>"; };
+		544B096F2BCE19EB00FA50F6 /* HKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKWebViewController.h; sourceTree = "<group>"; };
+		544B09702BCE19EB00FA50F6 /* HKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKWebViewController.m; sourceTree = "<group>"; };
+		545BDE372B1A171B00E08AB1 /* NSObject+KVODefender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVODefender.h"; sourceTree = "<group>"; };
+		545BDE382B1A171B00E08AB1 /* NSObject+KVODefender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVODefender.m"; sourceTree = "<group>"; };
+		545BDE3D2B1A18D900E08AB1 /* NSObject+MethodSwizzling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+MethodSwizzling.h"; sourceTree = "<group>"; };
+		545BDE3E2B1A18D900E08AB1 /* NSObject+MethodSwizzling.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MethodSwizzling.m"; sourceTree = "<group>"; };
+		545BDE402B1A19D400E08AB1 /* HKKVCDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKKVCDemo.h; sourceTree = "<group>"; };
+		545BDE412B1A19D400E08AB1 /* HKKVCDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKKVCDemo.m; sourceTree = "<group>"; };
+		545BDE492B1A24BD00E08AB1 /* NSObject+SelectorDefender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SelectorDefender.h"; sourceTree = "<group>"; };
+		545BDE4A2B1A24BD00E08AB1 /* NSObject+SelectorDefender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SelectorDefender.m"; sourceTree = "<group>"; };
+		545BDE4D2B1A2AB600E08AB1 /* NSObject+KVCDefender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVCDefender.h"; sourceTree = "<group>"; };
+		545BDE4E2B1A2AB600E08AB1 /* NSObject+KVCDefender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVCDefender.m"; sourceTree = "<group>"; };
+		547092142BD01942006160EF /* C Primer Plus 第6版.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "C Primer Plus 第6版.pdf"; path = "../../C Primer Plus 第6版.pdf"; sourceTree = "<group>"; };
+		547092172BD028CC006160EF /* HKTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKTimerViewController.h; sourceTree = "<group>"; };
+		547092182BD028CC006160EF /* HKTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKTimerViewController.m; sourceTree = "<group>"; };
+		5470921B2BD02BF1006160EF /* Weakify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weakify.h; sourceTree = "<group>"; };
+		5487F00C2BCE0D7800700FCF /* HKReadWhiteSafeDic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKReadWhiteSafeDic.h; sourceTree = "<group>"; };
+		5487F00D2BCE0D7800700FCF /* HKReadWhiteSafeDic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKReadWhiteSafeDic.m; sourceTree = "<group>"; };
+		54BF5CED29C7E86400820B8B /* HKOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKOperation.h; sourceTree = "<group>"; };
+		54BF5CEE29C7E86400820B8B /* HKOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKOperation.m; sourceTree = "<group>"; };
+		54CE89FB2B1601480089D7EF /* NSTimer+WeakTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+WeakTimer.h"; sourceTree = "<group>"; };
+		54CE89FC2B1601480089D7EF /* NSTimer+WeakTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+WeakTimer.m"; sourceTree = "<group>"; };
+		54D099AA2B2721CC000A0DCD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		54D099AC2B274922000A0DCD /* HKLayoutDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HKLayoutDemo.entitlements; sourceTree = "<group>"; };
 		54E322B229D057BB00E23DE1 /* HKLayoutDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HKLayoutDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E322B429D057BB00E23DE1 /* HKLayoutDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKLayoutDemoTests.m; sourceTree = "<group>"; };
 		54E322BF29D057D100E23DE1 /* HKLayoutDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HKLayoutDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E322C129D057D100E23DE1 /* HKLayoutDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKLayoutDemoUITests.m; sourceTree = "<group>"; };
 		54E322C329D057D100E23DE1 /* HKLayoutDemoUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKLayoutDemoUITestsLaunchTests.m; sourceTree = "<group>"; };
-		607D5CD574E5141412208316 /* Pods-HKLayoutDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HKLayoutDemo.debug.xcconfig"; path = "Target Support Files/Pods-HKLayoutDemo/Pods-HKLayoutDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		75CA211A78CFA829396AFB60 /* Pods-HKLayoutDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HKLayoutDemo.release.xcconfig"; path = "Target Support Files/Pods-HKLayoutDemo/Pods-HKLayoutDemo.release.xcconfig"; sourceTree = "<group>"; };
-		A2626A78CC584C004AE77167 /* libPods-HKLayoutDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HKLayoutDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A023216694FEB291B078D9F8 /* Pods-HKLayoutDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HKLayoutDemo.release.xcconfig"; path = "Target Support Files/Pods-HKLayoutDemo/Pods-HKLayoutDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F5FFD61D0A0FF8FDBE533C49 /* libPods-HKLayoutDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HKLayoutDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6A7C683EF78C8DD1D2F4D81 /* libPods-HKLayoutDemo.a in Frameworks */,
+				9B6879CEA1909F4170B9F8F2 /* libPods-HKLayoutDemo.a in Frameworks */,
+				547092102BD018D5006160EF /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,12 +228,10 @@
 		2B0FA1272085C8830041FBE2 /* HKLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5470921A2BD02BE3006160EF /* Common */,
+				54D099AC2B274922000A0DCD /* HKLayoutDemo.entitlements */,
 				2B0FA1282085C8830041FBE2 /* AppDelegate.h */,
 				2B0FA1292085C8830041FBE2 /* AppDelegate.m */,
-				2B86A65D2086ED650040A6F1 /* HKDefineTabBarController.h */,
-				2B86A65E2086ED650040A6F1 /* HKDefineTabBarController.m */,
-				262B8C1224C89326001EF1E0 /* HKNavigationController.h */,
-				262B8C1324C89326001EF1E0 /* HKNavigationController.m */,
 				262E7560277A15D1008CF8F5 /* HKTestSwift.swift */,
 				262E7562277A15F8008CF8F5 /* HKOCViewController.h */,
 				262E7563277A15F8008CF8F5 /* HKOCViewController.m */,
@@ -182,6 +241,8 @@
 				2B86A6622086EE880040A6F1 /* Scroll */,
 				2B86A6612086EE7F0040A6F1 /* Table */,
 				2B86A6602086EE6B0040A6F1 /* Collection */,
+				54288AC22BA2D479009317A8 /* Base */,
+				54288AC12BA2D3CD009317A8 /* Category */,
 				2B0FA13E2085C8F00041FBE2 /* Supporting Files */,
 				262E755F277A15D1008CF8F5 /* HKLayoutDemo-Bridging-Header.h */,
 			);
@@ -191,6 +252,8 @@
 		2B0FA13E2085C8F00041FBE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				547092142BD01942006160EF /* C Primer Plus 第6版.pdf */,
+				542887292BA2B07A009317A8 /* PrefixHeader.pch */,
 				2B0FA12E2085C8830041FBE2 /* Main.storyboard */,
 				2B0FA1312085C8840041FBE2 /* Assets.xcassets */,
 				2B0FA1332085C8840041FBE2 /* LaunchScreen.storyboard */,
@@ -203,8 +266,8 @@
 		2B86A6602086EE6B0040A6F1 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
-				2B86A65A2086ECF60040A6F1 /* CollectionViewController.h */,
-				2B86A65B2086ECF60040A6F1 /* CollectionViewController.m */,
+				2B86A65A2086ECF60040A6F1 /* HKCollectionViewController.h */,
+				2B86A65B2086ECF60040A6F1 /* HKCollectionViewController.m */,
 			);
 			name = Collection;
 			sourceTree = "<group>";
@@ -212,12 +275,18 @@
 		2B86A6612086EE7F0040A6F1 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				2B86A6572086ECED0040A6F1 /* TableViewController.h */,
-				2B86A6582086ECED0040A6F1 /* TableViewController.m */,
-				2B86A6682086F18B0040A6F1 /* TableView.h */,
-				2B86A6692086F18B0040A6F1 /* TableView.m */,
-				2B86A66B2086F1950040A6F1 /* TableViewCell.h */,
-				2B86A66C2086F1950040A6F1 /* TableViewCell.m */,
+				2B86A6572086ECED0040A6F1 /* HKTableViewController.h */,
+				2B86A6582086ECED0040A6F1 /* HKTableViewController.m */,
+				542886082B9EE827009317A8 /* HKPDFViewController.h */,
+				542886092B9EE827009317A8 /* HKPDFViewController.m */,
+				262B8C1824C8979F001EF1E0 /* HKSearchViewController.h */,
+				262B8C1924C8979F001EF1E0 /* HKSearchViewController.m */,
+				262B8C0924C89278001EF1E0 /* HKResultViewController.h */,
+				262B8C0A24C89278001EF1E0 /* HKResultViewController.m */,
+				54288AC32BA2D5B7009317A8 /* HKOrientationViewController.h */,
+				54288AC42BA2D5B7009317A8 /* HKOrientationViewController.m */,
+				547092172BD028CC006160EF /* HKTimerViewController.h */,
+				547092182BD028CC006160EF /* HKTimerViewController.m */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -225,10 +294,10 @@
 		2B86A6622086EE880040A6F1 /* Scroll */ = {
 			isa = PBXGroup;
 			children = (
-				2B86A6542086ECE40040A6F1 /* ScrollViewController.h */,
-				2B86A6552086ECE40040A6F1 /* ScrollViewController.m */,
-				2B86A6652086EEF00040A6F1 /* ScorllView.h */,
-				2B86A6662086EEF00040A6F1 /* ScorllView.m */,
+				2B86A6542086ECE40040A6F1 /* HKScrollViewController.h */,
+				2B86A6552086ECE40040A6F1 /* HKScrollViewController.m */,
+				2B86A6652086EEF00040A6F1 /* HKScorllView.h */,
+				2B86A6662086EEF00040A6F1 /* HKScorllView.m */,
 			);
 			name = Scroll;
 			sourceTree = "<group>";
@@ -236,23 +305,77 @@
 		2B86A6632086EE8E0040A6F1 /* Normal */ = {
 			isa = PBXGroup;
 			children = (
-				2B86A6512086ECD40040A6F1 /* NormalViewController.h */,
-				2B86A6522086ECD40040A6F1 /* NormalViewController.m */,
-				262B8C1824C8979F001EF1E0 /* HKTestSearchController.h */,
-				262B8C1924C8979F001EF1E0 /* HKTestSearchController.m */,
-				262B8C0924C89278001EF1E0 /* ResultViewController.h */,
-				262B8C0A24C89278001EF1E0 /* ResultViewController.m */,
-				262B8C1524C895D6001EF1E0 /* UIImage+category.h */,
-				262B8C1624C895D6001EF1E0 /* UIImage+category.m */,
+				2B86A6512086ECD40040A6F1 /* HKNormalViewController.h */,
+				2B86A6522086ECD40040A6F1 /* HKNormalViewController.m */,
+				544B096F2BCE19EB00FA50F6 /* HKWebViewController.h */,
+				544B09702BCE19EB00FA50F6 /* HKWebViewController.m */,
+				545BDE402B1A19D400E08AB1 /* HKKVCDemo.h */,
+				545BDE412B1A19D400E08AB1 /* HKKVCDemo.m */,
+				54D099A92B2721CC000A0DCD /* Model.xcdatamodeld */,
 			);
 			name = Normal;
+			sourceTree = "<group>";
+		};
+		54288AAF2BA2C37D009317A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54288AB52BA2C37D009317A8 /* libPSPDFKit.a */,
+				54288AB72BA2C37D009317A8 /* libPSPDFKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54288AC12BA2D3CD009317A8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				262B8C1524C895D6001EF1E0 /* UIImage+Category.h */,
+				262B8C1624C895D6001EF1E0 /* UIImage+Category.m */,
+				54CE89FB2B1601480089D7EF /* NSTimer+WeakTimer.h */,
+				54CE89FC2B1601480089D7EF /* NSTimer+WeakTimer.m */,
+				545BDE492B1A24BD00E08AB1 /* NSObject+SelectorDefender.h */,
+				545BDE4A2B1A24BD00E08AB1 /* NSObject+SelectorDefender.m */,
+				545BDE372B1A171B00E08AB1 /* NSObject+KVODefender.h */,
+				545BDE382B1A171B00E08AB1 /* NSObject+KVODefender.m */,
+				545BDE4D2B1A2AB600E08AB1 /* NSObject+KVCDefender.h */,
+				545BDE4E2B1A2AB600E08AB1 /* NSObject+KVCDefender.m */,
+				545BDE3D2B1A18D900E08AB1 /* NSObject+MethodSwizzling.h */,
+				545BDE3E2B1A18D900E08AB1 /* NSObject+MethodSwizzling.m */,
+				5428872A2BA2B300009317A8 /* UINavigationController+Push.h */,
+				5428872B2BA2B300009317A8 /* UINavigationController+Push.m */,
+				54288ABE2BA2CE4D009317A8 /* UIView+Rect.h */,
+				54288ABF2BA2CE4D009317A8 /* UIView+Rect.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		54288AC22BA2D479009317A8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2B86A65D2086ED650040A6F1 /* HKDefineTabBarController.h */,
+				2B86A65E2086ED650040A6F1 /* HKDefineTabBarController.m */,
+				262B8C1224C89326001EF1E0 /* HKNavigationController.h */,
+				262B8C1324C89326001EF1E0 /* HKNavigationController.m */,
+				542887262BA2AF33009317A8 /* HKBaseViewController.h */,
+				542887272BA2AF33009317A8 /* HKBaseViewController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		5470921A2BD02BE3006160EF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5470921B2BD02BF1006160EF /* Weakify.h */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		54BF5CEC29C7E84B00820B8B /* NSOperation */ = {
 			isa = PBXGroup;
 			children = (
-				54BF5CED29C7E86400820B8B /* YSCOperation.h */,
-				54BF5CEE29C7E86400820B8B /* YSCOperation.m */,
+				54BF5CED29C7E86400820B8B /* HKOperation.h */,
+				54BF5CEE29C7E86400820B8B /* HKOperation.m */,
+				5487F00C2BCE0D7800700FCF /* HKReadWhiteSafeDic.h */,
+				5487F00D2BCE0D7800700FCF /* HKReadWhiteSafeDic.m */,
 			);
 			path = NSOperation;
 			sourceTree = "<group>";
@@ -277,8 +400,8 @@
 		9BDCAEA018B5DD98954FDA8E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				607D5CD574E5141412208316 /* Pods-HKLayoutDemo.debug.xcconfig */,
-				75CA211A78CFA829396AFB60 /* Pods-HKLayoutDemo.release.xcconfig */,
+				34F83C3E5358DA524E73E221 /* Pods-HKLayoutDemo.debug.xcconfig */,
+				A023216694FEB291B078D9F8 /* Pods-HKLayoutDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -286,9 +409,11 @@
 		C450E71AF98891C91CE0B8E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A2626A78CC584C004AE77167 /* libPods-HKLayoutDemo.a */,
+				54288AB82BA2C3DF009317A8 /* libPSPDFKit.a */,
+				54288AAE2BA2C37D009317A8 /* PSPDFKit-lib.xcodeproj */,
 				26BC3C6B258260AD00E16830 /* WidgetKit.framework */,
 				26BC3C6D258260AD00E16830 /* SwiftUI.framework */,
+				F5FFD61D0A0FF8FDBE533C49 /* libPods-HKLayoutDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -312,6 +437,9 @@
 			dependencies = (
 			);
 			name = HKLayoutDemo;
+			packageProductDependencies = (
+				5470920F2BD018D5006160EF /* AlamofireDynamic */,
+			);
 			productName = HKLayoutDemo;
 			productReference = 2B0FA1252085C8830041FBE2 /* HKLayoutDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -358,6 +486,7 @@
 		2B0FA11D2085C8830041FBE2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HK;
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Edward;
@@ -385,8 +514,17 @@
 				Base,
 			);
 			mainGroup = 2B0FA11C2085C8830041FBE2;
+			packageReferences = (
+				5470920E2BD018D5006160EF /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 2B0FA1262085C8830041FBE2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 54288AAF2BA2C37D009317A8 /* Products */;
+					ProjectRef = 54288AAE2BA2C37D009317A8 /* PSPDFKit-lib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2B0FA1242085C8830041FBE2 /* HKLayoutDemo */,
@@ -396,12 +534,30 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		54288AB52BA2C37D009317A8 /* libPSPDFKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPSPDFKit.a;
+			remoteRef = 54288AB42BA2C37D009317A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54288AB72BA2C37D009317A8 /* libPSPDFKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPSPDFKit.a;
+			remoteRef = 54288AB62BA2C37D009317A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		2B0FA1232085C8830041FBE2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2B0FA1352085C8840041FBE2 /* LaunchScreen.storyboard in Resources */,
+				547092152BD01942006160EF /* C Primer Plus 第6版.pdf in Resources */,
 				2B0FA1322085C8840041FBE2 /* Assets.xcassets in Resources */,
 				2B0FA1302085C8830041FBE2 /* Main.storyboard in Resources */,
 			);
@@ -472,22 +628,35 @@
 			files = (
 				2B0FA1382085C8840041FBE2 /* main.m in Sources */,
 				2B86A65F2086ED650040A6F1 /* HKDefineTabBarController.m in Sources */,
-				262B8C1A24C8979F001EF1E0 /* HKTestSearchController.m in Sources */,
+				262B8C1A24C8979F001EF1E0 /* HKSearchViewController.m in Sources */,
 				262E7564277A15F8008CF8F5 /* HKOCViewController.m in Sources */,
+				547092192BD028CC006160EF /* HKTimerViewController.m in Sources */,
+				5428860A2B9EE827009317A8 /* HKPDFViewController.m in Sources */,
+				5428872C2BA2B300009317A8 /* UINavigationController+Push.m in Sources */,
 				262E7566277A160C008CF8F5 /* HKSwiftViewController.swift in Sources */,
-				2B86A66D2086F1950040A6F1 /* TableViewCell.m in Sources */,
-				2B86A66A2086F18B0040A6F1 /* TableView.m in Sources */,
-				262B8C1724C895D6001EF1E0 /* UIImage+category.m in Sources */,
-				262B8C0B24C89278001EF1E0 /* ResultViewController.m in Sources */,
-				54BF5CEF29C7E86400820B8B /* YSCOperation.m in Sources */,
+				545BDE392B1A171B00E08AB1 /* NSObject+KVODefender.m in Sources */,
+				262B8C1724C895D6001EF1E0 /* UIImage+Category.m in Sources */,
+				5487F00E2BCE0D7800700FCF /* HKReadWhiteSafeDic.m in Sources */,
+				262B8C0B24C89278001EF1E0 /* HKResultViewController.m in Sources */,
+				54BF5CEF29C7E86400820B8B /* HKOperation.m in Sources */,
+				542887282BA2AF33009317A8 /* HKBaseViewController.m in Sources */,
+				545BDE422B1A19D400E08AB1 /* HKKVCDemo.m in Sources */,
+				54288AC02BA2CE4D009317A8 /* UIView+Rect.m in Sources */,
+				54288AC52BA2D5B7009317A8 /* HKOrientationViewController.m in Sources */,
 				262B8C1424C89326001EF1E0 /* HKNavigationController.m in Sources */,
-				2B86A6532086ECD40040A6F1 /* NormalViewController.m in Sources */,
+				54CE89FD2B1601480089D7EF /* NSTimer+WeakTimer.m in Sources */,
+				545BDE3F2B1A18D900E08AB1 /* NSObject+MethodSwizzling.m in Sources */,
+				2B86A6532086ECD40040A6F1 /* HKNormalViewController.m in Sources */,
+				544B09712BCE19EB00FA50F6 /* HKWebViewController.m in Sources */,
 				2B0FA12A2085C8830041FBE2 /* AppDelegate.m in Sources */,
-				2B86A6562086ECE40040A6F1 /* ScrollViewController.m in Sources */,
-				2B86A6592086ECED0040A6F1 /* TableViewController.m in Sources */,
-				2B86A65C2086ECF60040A6F1 /* CollectionViewController.m in Sources */,
+				2B86A6562086ECE40040A6F1 /* HKScrollViewController.m in Sources */,
+				2B86A6592086ECED0040A6F1 /* HKTableViewController.m in Sources */,
+				2B86A65C2086ECF60040A6F1 /* HKCollectionViewController.m in Sources */,
 				262E7561277A15D1008CF8F5 /* HKTestSwift.swift in Sources */,
-				2B86A6672086EEF00040A6F1 /* ScorllView.m in Sources */,
+				545BDE4F2B1A2AB600E08AB1 /* NSObject+KVCDefender.m in Sources */,
+				54D099AB2B2721CC000A0DCD /* Model.xcdatamodeld in Sources */,
+				2B86A6672086EEF00040A6F1 /* HKScorllView.m in Sources */,
+				545BDE4B2B1A24BD00E08AB1 /* NSObject+SelectorDefender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +714,6 @@
 /* Begin XCBuildConfiguration section */
 		2B0FA1392085C8840041FBE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 607D5CD574E5141412208316 /* Pods-HKLayoutDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -604,7 +772,6 @@
 		};
 		2B0FA13A2085C8840041FBE2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75CA211A78CFA829396AFB60 /* Pods-HKLayoutDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -657,20 +824,37 @@
 		};
 		2B0FA13C2085C8840041FBE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 607D5CD574E5141412208316 /* Pods-HKLayoutDemo.debug.xcconfig */;
+			baseConfigurationReference = 34F83C3E5358DA524E73E221 /* Pods-HKLayoutDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HKLayoutDemo/HKLayoutDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DH6P4GZ73C;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HKLayoutDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = HKLayoutDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_GENERATE_MAP_FILE = YES;
+				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CTMediator\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"$(PROJECT_DIR)/Frameworks/PSPDFKit/Externals/libturbojpeg",
+				);
+				ORDER_FILE = "$(SRCROOT)/HKLayoutDemo.order";
+				OTHER_CFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Edward.HKLayoutDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -678,37 +862,53 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Frameworks/PSPDFKit";
 			};
 			name = Debug;
 		};
 		2B0FA13D2085C8840041FBE2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75CA211A78CFA829396AFB60 /* Pods-HKLayoutDemo.release.xcconfig */;
+			baseConfigurationReference = A023216694FEB291B078D9F8 /* Pods-HKLayoutDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HKLayoutDemo/HKLayoutDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DH6P4GZ73C;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HKLayoutDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = HKLayoutDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CTMediator\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+				);
+				ORDER_FILE = "$(SRCROOT)/HKLayoutDemo.order";
+				OTHER_CFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Edward.HKLayoutDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HKLayoutDemo/HKLayoutDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Frameworks/PSPDFKit";
 			};
 			name = Release;
 		};
 		54E322B829D057BB00E23DE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 607D5CD574E5141412208316 /* Pods-HKLayoutDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -732,7 +932,6 @@
 		};
 		54E322B929D057BB00E23DE1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75CA211A78CFA829396AFB60 /* Pods-HKLayoutDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -755,7 +954,6 @@
 		};
 		54E322C829D057D100E23DE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 607D5CD574E5141412208316 /* Pods-HKLayoutDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -778,7 +976,6 @@
 		};
 		54E322C929D057D100E23DE1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75CA211A78CFA829396AFB60 /* Pods-HKLayoutDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -838,6 +1035,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5470920E2BD018D5006160EF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5470920F2BD018D5006160EF /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5470920E2BD018D5006160EF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		54D099A92B2721CC000A0DCD /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				54D099AA2B2721CC000A0DCD /* Model.xcdatamodel */,
+			);
+			currentVersion = 54D099AA2B2721CC000A0DCD /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2B0FA11D2085C8830041FBE2 /* Project object */;
 }

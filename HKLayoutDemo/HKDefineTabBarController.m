@@ -8,10 +8,10 @@
 
 #import "HKDefineTabBarController.h"
 #import "HKNavigationController.h"
-#import "NormalViewController.h"
-#import "ScrollViewController.h"
-#import "TableViewController.h"
-#import "CollectionViewController.h"
+#import "HKNormalViewController.h"
+#import "HKScrollViewController.h"
+#import "HKTableViewController.h"
+#import "HKCollectionViewController.h"
 
 #define __TabBarItemFontSize 12.f
 @interface HKDefineTabBarController ()
@@ -22,7 +22,7 @@
 
 + (void)initialize {
     NSMutableDictionary *defaultAttriDict = [NSMutableDictionary dictionary];
-    defaultAttriDict[NSForegroundColorAttributeName] = [UIColor grayColor];
+    defaultAttriDict[NSForegroundColorAttributeName] = [UIColor redColor];
     defaultAttriDict[NSFontAttributeName] = [UIFont systemFontOfSize:__TabBarItemFontSize];
 
     NSMutableDictionary *selectAttriDict = [NSMutableDictionary dictionary];
@@ -36,11 +36,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupSubTabItemsWithController:[[NormalViewController alloc] init] title:@"Normal" defaultImgName:@"tabBar_home_icon" selectedImgName:@"tabBar_home_click_icon"];
-    [self setupSubTabItemsWithController:[[ScrollViewController alloc] init] title:@"scroll" defaultImgName:@"tabBar_setting_icon" selectedImgName:@"tabBar_setting_click_icon"];
-    [self setupSubTabItemsWithController:[[TableViewController alloc] init] title:@"table" defaultImgName:@"tabBar_home_icon" selectedImgName:@"tabBar_home_click_icon"];
-    [self setupSubTabItemsWithController:[[CollectionViewController alloc] init] title:@"collection" defaultImgName:@"tabBar_setting_icon" selectedImgName:@"tabBar_setting_click_icon"];
+    self.view.backgroundColor = UIColor.redColor;
+    [self setupSubTabItemsWithController:[[HKNormalViewController alloc] init] title:@"Normal"
+                          defaultImgName:@"tabBar_home_icon"
+                         selectedImgName:@"tabBar_home_click_icon"];
+    
+    [self setupSubTabItemsWithController:[[HKScrollViewController alloc] init] title:@"scroll"
+                          defaultImgName:@"tabBar_setting_icon"
+                         selectedImgName:@"tabBar_setting_click_icon"];
+    
+    [self setupSubTabItemsWithController:[[HKTableViewController alloc] init] title:@"table"
+                          defaultImgName:@"tabBar_home_icon"
+                         selectedImgName:@"tabBar_home_click_icon"];
+    
+    [self setupSubTabItemsWithController:[[HKCollectionViewController alloc] init] title:@"collection"
+                          defaultImgName:@"tabBar_setting_icon"
+                         selectedImgName:@"tabBar_setting_click_icon"];
 }
+
+
 
 - (void)setupSubTabItemsWithController:(UIViewController *)controller
                                  title:(NSString *)title
@@ -67,5 +81,9 @@
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     return [self.selectedViewController preferredInterfaceOrientationForPresentation];
 }
+
+
+
+
 
 @end

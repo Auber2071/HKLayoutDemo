@@ -14,9 +14,20 @@
 
 @implementation HKOCViewController
 
++ (void)load {
+    NSLog(@"load------%s", __func__);
+}
+
++ (void)initialize {
+    NSLog(@"initialize--------%s", __func__);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = UIColor.whiteColor;
+   
+    
 }
 
 /*

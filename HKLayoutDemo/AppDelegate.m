@@ -11,6 +11,8 @@
 
 @interface AppDelegate ()
 
+
+
 @end
 
 @implementation AppDelegate
@@ -52,3 +54,29 @@
 
 
 @end
+/*
+ Build Setting: Other C Flags: -fsanitize-coverage=trace-pc-guard
+#include <stdio.h>
+#include <sanitizer/coverage_interface.h>
+#import <dlfcn.h>
+
+void __sanitizer_cov_trace_pc_guard_init(uint32_t *start, uint32_t *stop) {
+      static uint64_t N;
+      if (start == stop || *start) return;
+      printf("启动优化----INIT: %p %p\n", start, stop);
+      for (uint32_t *x = start; x < stop; x++)
+        *x = ++N;
+}
+
+void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
+    if (!*guard) return;// 把这个注释掉 +load方法也会hook到
+    void *PC = __builtin_return_address(0);
+    char PcDescr[1024];
+//    printf("启动优化----guard: %p %x PC %s\n", guard, *guard, PcDescr);
+    
+    Dl_info info;
+    dladdr(PC, &info);
+    NSLog(@"启动优化----name:%s\n",info.dli_sname);
+}
+
+*/

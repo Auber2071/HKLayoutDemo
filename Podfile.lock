@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - CTMediator (48)
+  - HandyAutoLayout (1.0.0)
+  - HandyFrame (1.2.0)
   - Masonry (1.1.0)
   - MJExtension (3.2.1)
   - MJRefresh (3.3.1)
@@ -21,32 +24,45 @@ PODS:
     - SDWebImage/Core (= 5.6.1)
   - SDWebImage/Core (5.6.1)
   - SwiftLint (0.42.0)
+  - YYCache (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
+  - CTMediator
+  - HandyAutoLayout
+  - HandyFrame
   - Masonry
   - MJExtension
   - MJRefresh
   - SDWebImage
   - SwiftLint
+  - YYCache
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - CTMediator
+    - HandyAutoLayout
+    - HandyFrame
     - Masonry
     - MJExtension
     - MJRefresh
     - SDWebImage
     - SwiftLint
+    - YYCache
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  CTMediator: 3f3578b525b3a46a7a2f92a99922ec40363f4269
+  HandyAutoLayout: f6ef3ab011318f8493fa868d93d9b03ceef4ef90
+  HandyFrame: 437df83ba7563c56cd55b9bd0128561995463110
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 4e2e23e3c1cce2c778c43c65703caa160287f7ec
+PODFILE CHECKSUM: 6edf6464305efc6c05e7fde8d57c127e4f9898d8
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.14.3

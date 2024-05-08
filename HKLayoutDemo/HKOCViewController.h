@@ -6,11 +6,11 @@
 //  Copyright © 2021 Edward. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HKBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HKOCViewController : UIViewController
+@interface HKOCViewController : HKBaseViewController
 
 @end
 

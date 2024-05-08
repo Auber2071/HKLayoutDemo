@@ -60,5 +60,3 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
-Carthage/Checkouts/CocoaMQTT/Carthage/Checkouts
-Carthage

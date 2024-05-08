@@ -1,5 +1,5 @@
 //
-//  UIImage+category.h
+//  UIImage+CategoryCategory.h
 //  BookReader
 //
 //  Created by mythlink on 10-11-17.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface UIImage(category)
+@interface UIImage(CategoryCategory)
 - (UIImage *)scaleWithWidth:(CGFloat)newWidth;
 - (UIImage *)scaleWithSize:(CGSize)newSize;
 - (CGFloat)height;
