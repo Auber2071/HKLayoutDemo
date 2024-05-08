@@ -40,6 +40,8 @@
 		547092152BD01942006160EF /* C Primer Plus 第6版.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 547092142BD01942006160EF /* C Primer Plus 第6版.pdf */; };
 		547092192BD028CC006160EF /* HKTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547092182BD028CC006160EF /* HKTimerViewController.m */; };
 		5487F00E2BCE0D7800700FCF /* HKReadWhiteSafeDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5487F00D2BCE0D7800700FCF /* HKReadWhiteSafeDic.m */; };
+		54AC84D52BEB692000F6A48B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 54AC84D42BEB692000F6A48B /* SnapKit */; };
+		54AC84D72BEB692000F6A48B /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 54AC84D62BEB692000F6A48B /* SnapKit-Dynamic */; };
 		54BF5CEF29C7E86400820B8B /* HKOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF5CEE29C7E86400820B8B /* HKOperation.m */; };
 		54CE89FD2B1601480089D7EF /* NSTimer+WeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CE89FC2B1601480089D7EF /* NSTimer+WeakTimer.m */; };
 		54D099AB2B2721CC000A0DCD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54D099A92B2721CC000A0DCD /* Model.xcdatamodeld */; };
@@ -181,8 +183,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54AC84D52BEB692000F6A48B /* SnapKit in Frameworks */,
 				9B6879CEA1909F4170B9F8F2 /* libPods-HKLayoutDemo.a in Frameworks */,
 				547092102BD018D5006160EF /* AlamofireDynamic in Frameworks */,
+				54AC84D72BEB692000F6A48B /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +443,8 @@
 			name = HKLayoutDemo;
 			packageProductDependencies = (
 				5470920F2BD018D5006160EF /* AlamofireDynamic */,
+				54AC84D42BEB692000F6A48B /* SnapKit */,
+				54AC84D62BEB692000F6A48B /* SnapKit-Dynamic */,
 			);
 			productName = HKLayoutDemo;
 			productReference = 2B0FA1252085C8830041FBE2 /* HKLayoutDemo.app */;
@@ -516,6 +522,7 @@
 			mainGroup = 2B0FA11C2085C8830041FBE2;
 			packageReferences = (
 				5470920E2BD018D5006160EF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				54AC84D32BEB692000F6A48B /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 2B0FA1262085C8830041FBE2 /* Products */;
 			projectDirPath = "";
@@ -1045,6 +1052,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		54AC84D32BEB692000F6A48B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1052,6 +1067,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5470920E2BD018D5006160EF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
+		};
+		54AC84D42BEB692000F6A48B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54AC84D32BEB692000F6A48B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		54AC84D62BEB692000F6A48B /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54AC84D32BEB692000F6A48B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 

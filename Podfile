@@ -47,7 +47,6 @@ target 'HKLayoutDemo' do
 #  pod 'JSONKit'
   pod 'MJRefresh'
   pod 'MJExtension'
-#  pod 'SnapKit'
   pod 'SwiftLint', configurations: ['Debug']
 #  pod 'PSPDFKit', podspec: 'https://my.pspdfkit.com/pspdfkit-ios/latest.podspec'
   pod 'HandyAutoLayout'
