@@ -37,7 +37,6 @@
 		545BDE4B2B1A24BD00E08AB1 /* NSObject+SelectorDefender.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE4A2B1A24BD00E08AB1 /* NSObject+SelectorDefender.m */; };
 		545BDE4F2B1A2AB600E08AB1 /* NSObject+KVCDefender.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE4E2B1A2AB600E08AB1 /* NSObject+KVCDefender.m */; };
 		547092102BD018D5006160EF /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 5470920F2BD018D5006160EF /* AlamofireDynamic */; };
-		547092152BD01942006160EF /* C Primer Plus 第6版.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 547092142BD01942006160EF /* C Primer Plus 第6版.pdf */; };
 		547092192BD028CC006160EF /* HKTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547092182BD028CC006160EF /* HKTimerViewController.m */; };
 		5487F00E2BCE0D7800700FCF /* HKReadWhiteSafeDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5487F00D2BCE0D7800700FCF /* HKReadWhiteSafeDic.m */; };
 		54AC84D52BEB692000F6A48B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 54AC84D42BEB692000F6A48B /* SnapKit */; };
@@ -47,6 +46,8 @@
 		54BF5CEF29C7E86400820B8B /* HKOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF5CEE29C7E86400820B8B /* HKOperation.m */; };
 		54CE89FD2B1601480089D7EF /* NSTimer+WeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CE89FC2B1601480089D7EF /* NSTimer+WeakTimer.m */; };
 		54D099AB2B2721CC000A0DCD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54D099A92B2721CC000A0DCD /* Model.xcdatamodeld */; };
+		54E1A8BD2BF10F3200F03D54 /* HKCollectionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E1A8BC2BF10F3100F03D54 /* HKCollectionAnimation.swift */; };
+		54E1A8C12BF1106900F03D54 /* C Primer Plus 第6版.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 54E1A8C02BF1106900F03D54 /* C Primer Plus 第6版.pdf */; };
 		54E322B529D057BB00E23DE1 /* HKLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E322B429D057BB00E23DE1 /* HKLayoutDemoTests.m */; };
 		54E322C229D057D100E23DE1 /* HKLayoutDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E322C129D057D100E23DE1 /* HKLayoutDemoUITests.m */; };
 		54E322C429D057D100E23DE1 /* HKLayoutDemoUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E322C329D057D100E23DE1 /* HKLayoutDemoUITestsLaunchTests.m */; };
@@ -159,7 +160,6 @@
 		545BDE4A2B1A24BD00E08AB1 /* NSObject+SelectorDefender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SelectorDefender.m"; sourceTree = "<group>"; };
 		545BDE4D2B1A2AB600E08AB1 /* NSObject+KVCDefender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVCDefender.h"; sourceTree = "<group>"; };
 		545BDE4E2B1A2AB600E08AB1 /* NSObject+KVCDefender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVCDefender.m"; sourceTree = "<group>"; };
-		547092142BD01942006160EF /* C Primer Plus 第6版.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "C Primer Plus 第6版.pdf"; path = "../../C Primer Plus 第6版.pdf"; sourceTree = "<group>"; };
 		547092172BD028CC006160EF /* HKTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKTimerViewController.h; sourceTree = "<group>"; };
 		547092182BD028CC006160EF /* HKTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKTimerViewController.m; sourceTree = "<group>"; };
 		5470921B2BD02BF1006160EF /* Weakify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weakify.h; sourceTree = "<group>"; };
@@ -175,6 +175,8 @@
 		54CE89FC2B1601480089D7EF /* NSTimer+WeakTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+WeakTimer.m"; sourceTree = "<group>"; };
 		54D099AA2B2721CC000A0DCD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		54D099AC2B274922000A0DCD /* HKLayoutDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HKLayoutDemo.entitlements; sourceTree = "<group>"; };
+		54E1A8BC2BF10F3100F03D54 /* HKCollectionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKCollectionAnimation.swift; sourceTree = "<group>"; };
+		54E1A8C02BF1106900F03D54 /* C Primer Plus 第6版.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "C Primer Plus 第6版.pdf"; sourceTree = "<group>"; };
 		54E322B229D057BB00E23DE1 /* HKLayoutDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HKLayoutDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E322B429D057BB00E23DE1 /* HKLayoutDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKLayoutDemoTests.m; sourceTree = "<group>"; };
 		54E322BF29D057D100E23DE1 /* HKLayoutDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HKLayoutDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,7 +264,7 @@
 		2B0FA13E2085C8F00041FBE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				547092142BD01942006160EF /* C Primer Plus 第6版.pdf */,
+				54E1A8C02BF1106900F03D54 /* C Primer Plus 第6版.pdf */,
 				542887292BA2B07A009317A8 /* PrefixHeader.pch */,
 				2B0FA12E2085C8830041FBE2 /* Main.storyboard */,
 				2B0FA1312085C8840041FBE2 /* Assets.xcassets */,
@@ -278,6 +280,7 @@
 			children = (
 				2B86A65A2086ECF60040A6F1 /* HKCollectionViewController.h */,
 				2B86A65B2086ECF60040A6F1 /* HKCollectionViewController.m */,
+				54E1A8BC2BF10F3100F03D54 /* HKCollectionAnimation.swift */,
 			);
 			name = Collection;
 			sourceTree = "<group>";
@@ -574,7 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B0FA1352085C8840041FBE2 /* LaunchScreen.storyboard in Resources */,
-				547092152BD01942006160EF /* C Primer Plus 第6版.pdf in Resources */,
+				54E1A8C12BF1106900F03D54 /* C Primer Plus 第6版.pdf in Resources */,
 				2B0FA1322085C8840041FBE2 /* Assets.xcassets in Resources */,
 				2B0FA1302085C8830041FBE2 /* Main.storyboard in Resources */,
 			);
@@ -670,6 +673,7 @@
 				2B0FA12A2085C8830041FBE2 /* AppDelegate.m in Sources */,
 				2B86A6562086ECE40040A6F1 /* HKScrollViewController.m in Sources */,
 				2B86A6592086ECED0040A6F1 /* HKTableViewController.m in Sources */,
+				54E1A8BD2BF10F3200F03D54 /* HKCollectionAnimation.swift in Sources */,
 				2B86A65C2086ECF60040A6F1 /* HKCollectionViewController.m in Sources */,
 				262E7561277A15D1008CF8F5 /* HKTestSwift.swift in Sources */,
 				545BDE4F2B1A2AB600E08AB1 /* NSObject+KVCDefender.m in Sources */,
