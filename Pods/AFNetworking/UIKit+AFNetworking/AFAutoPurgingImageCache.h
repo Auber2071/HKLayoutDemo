@@ -27,6 +27,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - protocol: AFImageCache
 /**
  The `AFImageCache` protocol defines a set of APIs for adding, removing and fetching images from a cache synchronously.
  */
@@ -66,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable UIImage *)imageWithIdentifier:(NSString *)identifier;
 @end
 
-
+#pragma mark - protocol: AFImageRequestCache
 /**
  The `ImageRequestCache` protocol extends the `ImageCache` protocol by adding methods for adding, removing and fetching images from a cache given an `NSURLRequest` and additional identifier.
  */
@@ -114,6 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+#pragma mark - AFAutoPurgingImageCache
 /**
  The `AutoPurgingImageCache` in an in-memory image cache used to store images up to a given memory capacity. When the memory capacity is reached, the image cache is sorted by last access date, then the oldest image is continuously purged until the preferred memory usage after purge is met. Each time an image is accessed through the cache, the internal access date of the image is updated.
  */

@@ -64,6 +64,7 @@
         vc = [[HKSwiftViewController alloc] init];
     } else {
         vc = [[NSClassFromString(className) alloc] init];
+        vc.navigationItem.title = self.dataSource[indexPath.row][kDesc];
     }
     
     [self.navigationController pushViewController:vc animated:YES];
@@ -100,7 +101,13 @@
                         
                         @{kDesc: @"NSTimer",
                           kClassName: @"HKTimerViewController"},
-
+                        
+                        @{kDesc: @"Net",
+                          kClassName: @"HKNetViewController"},
+                        
+                        @{kDesc: @"GCD",
+                          kClassName: @"HKGCDViewController"},
+                        
         ];
         
     }

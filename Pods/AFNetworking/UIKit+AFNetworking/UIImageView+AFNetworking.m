@@ -38,7 +38,10 @@
 }
 
 - (void)af_setActiveImageDownloadReceipt:(AFImageDownloadReceipt *)imageDownloadReceipt {
-    objc_setAssociatedObject(self, @selector(af_activeImageDownloadReceipt), imageDownloadReceipt, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self,
+                             @selector(af_activeImageDownloadReceipt),
+                             imageDownloadReceipt,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end
@@ -52,7 +55,10 @@
 }
 
 + (void)setSharedImageDownloader:(AFImageDownloader *)imageDownloader {
-    objc_setAssociatedObject([UIImageView class], @selector(sharedImageDownloader), imageDownloader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject([UIImageView class],
+                             @selector(sharedImageDownloader),
+                             imageDownloader,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark -

@@ -133,22 +133,31 @@
     SDImageFormat imageFormat;
     if (CFStringCompare(uttype, kUTTypeJPEG, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatJPEG;
+        
     } else if (CFStringCompare(uttype, kUTTypePNG, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatPNG;
+        
     } else if (CFStringCompare(uttype, kUTTypeGIF, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatGIF;
+        
     } else if (CFStringCompare(uttype, kUTTypeTIFF, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatTIFF;
+        
     } else if (CFStringCompare(uttype, kSDUTTypeWebP, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatWebP;
+        
     } else if (CFStringCompare(uttype, kSDUTTypeHEIC, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatHEIC;
+        
     } else if (CFStringCompare(uttype, kSDUTTypeHEIF, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatHEIF;
+        
     } else if (CFStringCompare(uttype, kUTTypePDF, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatPDF;
+        
     } else if (CFStringCompare(uttype, kUTTypeScalableVectorGraphics, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatSVG;
+        
     } else {
         imageFormat = SDImageFormatUndefined;
     }

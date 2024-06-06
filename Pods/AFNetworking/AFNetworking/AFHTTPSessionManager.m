@@ -72,8 +72,7 @@
     return [self initWithBaseURL:nil sessionConfiguration:configuration];
 }
 
-- (instancetype)initWithBaseURL:(NSURL *)url
-           sessionConfiguration:(NSURLSessionConfiguration *)configuration
+- (instancetype)initWithBaseURL:(NSURL *)url sessionConfiguration:(NSURLSessionConfiguration *)configuration
 {
     // 先调用其父类AFURLSessionManager的初始化方法
     self = [super initWithSessionConfiguration:configuration];
@@ -136,6 +135,7 @@
 
 #pragma mark - 创建请求的公共方法
 
+#pragma mark - GET
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
                    parameters:(nullable id)parameters
                       headers:(nullable NSDictionary <NSString *, NSString *> *)headers
@@ -158,6 +158,7 @@
     return dataTask;
 }
 
+#pragma mark - HEAD
 - (NSURLSessionDataTask *)HEAD:(NSString *)URLString
                     parameters:(nullable id)parameters
                        headers:(nullable NSDictionary<NSString *,NSString *> *)headers
@@ -181,6 +182,7 @@
     return dataTask;
 }
 
+#pragma mark - POST
 - (nullable NSURLSessionDataTask *)POST:(NSString *)URLString
                              parameters:(nullable id)parameters
                                 headers:(nullable NSDictionary <NSString *, NSString *> *)headers
@@ -206,10 +208,16 @@
                        headers:(nullable NSDictionary<NSString *,NSString *> *)headers
      constructingBodyWithBlock:(nullable void (^)(id<AFMultipartFormData> _Nonnull))block
                       progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress
-                       success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
+                       success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success
+                       failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
 {
     NSError *serializationError = nil;
-    NSMutableURLRequest *request = [self.requestSerializer multipartFormRequestWithMethod:@"POST" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters constructingBodyWithBlock:block error:&serializationError];
+    NSMutableURLRequest *request = [self.requestSerializer multipartFormRequestWithMethod:@"POST"
+                                                                                URLString:[[NSURL URLWithString:URLString
+                                                                                                  relativeToURL:self.baseURL] absoluteString]
+                                                                               parameters:parameters
+                                                                constructingBodyWithBlock:block
+                                                                                    error:&serializationError];
     for (NSString *headerField in headers.keyEnumerator) {
         [request setValue:headers[headerField] forHTTPHeaderField:headerField];
     }
@@ -225,7 +233,8 @@
     
     __block NSURLSessionDataTask *task = [self uploadTaskWithStreamedRequest:request
                                                                     progress:uploadProgress
-                                                           completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *error) {
+                                                           completionHandler:^(NSURLResponse * __unused response,
+                                                                               id responseObject, NSError *error) {
         if (error) {
             if (failure) {
                 failure(task, error);
@@ -242,6 +251,7 @@
     return task;
 }
 
+#pragma mark - PUT
 - (NSURLSessionDataTask *)PUT:(NSString *)URLString
                    parameters:(nullable id)parameters
                       headers:(nullable NSDictionary<NSString *,NSString *> *)headers
@@ -262,6 +272,7 @@
     return dataTask;
 }
 
+#pragma mark - PATCH
 - (NSURLSessionDataTask *)PATCH:(NSString *)URLString
                      parameters:(nullable id)parameters
                         headers:(nullable NSDictionary<NSString *,NSString *> *)headers
@@ -282,6 +293,7 @@
     return dataTask;
 }
 
+#pragma mark - DELETE
 - (NSURLSessionDataTask *)DELETE:(NSString *)URLString
                       parameters:(nullable id)parameters
                          headers:(nullable NSDictionary<NSString *,NSString *> *)headers
@@ -302,7 +314,7 @@
     return dataTask;
 }
 
-
+#pragma mark - dataTaskWithHTTPMethod - dataTaskWithRequest
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
                                        URLString:(NSString *)URLString
                                       parameters:(nullable id)parameters
@@ -313,7 +325,11 @@
                                          failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure
 {
     NSError *serializationError = nil;
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:&serializationError];
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
+                                                                   URLString:[[NSURL URLWithString:URLString
+                                                                                     relativeToURL:self.baseURL] absoluteString]
+                                                                  parameters:parameters
+                                                                       error:&serializationError];
     for (NSString *headerField in headers.keyEnumerator) {
         [request setValue:headers[headerField] forHTTPHeaderField:headerField];
     }

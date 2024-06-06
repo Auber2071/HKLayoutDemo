@@ -156,8 +156,8 @@ id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingOptions 
     // 如果response有值，并且response是NSHTTPURLResponse类型的对象
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
         // 如果设置了可接受的ContentTypes，并且响应的content-type不在可接受的范围内，并且响应的content-type有值或者返回了数据
-        if (self.acceptableContentTypes && ![self.acceptableContentTypes containsObject:[response MIMEType]] &&
-            !([response MIMEType] == nil && [data length] == 0)) {
+        if (self.acceptableContentTypes &&
+            ![self.acceptableContentTypes containsObject:[response MIMEType]] && !([response MIMEType] == nil && [data length] == 0)) {
 
             // 如果返回了数据，并且响应有URL
             if ([data length] > 0 && [response URL]) {

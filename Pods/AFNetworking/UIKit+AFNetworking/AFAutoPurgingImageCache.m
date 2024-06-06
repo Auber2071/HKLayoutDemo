@@ -25,6 +25,7 @@
 
 #import "AFAutoPurgingImageCache.h"
 
+#pragma mark - AFCachedImage
 @interface AFCachedImage : NSObject
 
 @property (nonatomic, strong) UIImage *image;
@@ -59,11 +60,11 @@
 - (NSString *)description {
     NSString *descriptionString = [NSString stringWithFormat:@"Idenfitier: %@  lastAccessDate: %@ ", self.identifier, self.lastAccessDate];
     return descriptionString;
-
 }
 
 @end
 
+#pragma mark - AFAutoPurgingImageCache
 @interface AFAutoPurgingImageCache ()
 @property (nonatomic, strong) NSMutableDictionary <NSString* , AFCachedImage*> *cachedImages;
 @property (nonatomic, assign) UInt64 currentMemoryUsage;
@@ -73,7 +74,8 @@
 @implementation AFAutoPurgingImageCache
 
 - (instancetype)init {
-    return [self initWithMemoryCapacity:100 * 1024 * 1024 preferredMemoryCapacity:60 * 1024 * 1024];
+    return [self initWithMemoryCapacity:100 * 1024 * 1024   // 100MB
+                preferredMemoryCapacity:60 * 1024 * 1024];  // 60MB
 }
 
 - (instancetype)initWithMemoryCapacity:(UInt64)memoryCapacity preferredMemoryCapacity:(UInt64)preferredMemoryCapacity {
@@ -90,7 +92,6 @@
          selector:@selector(removeAllImages)
          name:UIApplicationDidReceiveMemoryWarningNotification
          object:nil];
-
     }
     return self;
 }
@@ -107,10 +108,14 @@
     return result;
 }
 
+#pragma mark - protocol: AFImageCache
 - (void)addImage:(UIImage *)image withIdentifier:(NSString *)identifier {
+    //读写控制：写
+    //1.添加新图片
     dispatch_barrier_async(self.synchronizationQueue, ^{
         AFCachedImage *cacheImage = [[AFCachedImage alloc] initWithImage:image identifier:identifier];
-
+        
+        //防止服务器端 针对同一个图片URL 重定向后，返回不同的图片
         AFCachedImage *previousCachedImage = self.cachedImages[identifier];
         if (previousCachedImage != nil) {
             self.currentMemoryUsage -= previousCachedImage.totalBytes;
@@ -120,7 +125,10 @@
         self.currentMemoryUsage += cacheImage.totalBytes;
     });
 
+    //读写控制：写
+    //2.检查当前内存用量是否需要 清理 过早的图片
     dispatch_barrier_async(self.synchronizationQueue, ^{
+        
         if (self.currentMemoryUsage > self.memoryCapacity) {
             UInt64 bytesToPurge = self.currentMemoryUsage - self.preferredMemoryUsageAfterPurge;
             NSMutableArray <AFCachedImage*> *sortedImages = [NSMutableArray arrayWithArray:self.cachedImages.allValues];
@@ -169,6 +177,7 @@
 
 - (nullable UIImage *)imageWithIdentifier:(NSString *)identifier {
     __block UIImage *image = nil;
+    //读写控制：读
     dispatch_sync(self.synchronizationQueue, ^{
         AFCachedImage *cachedImage = self.cachedImages[identifier];
         image = [cachedImage accessImage];
@@ -176,6 +185,7 @@
     return image;
 }
 
+#pragma mark - protocol: AFImageRequestCache
 - (void)addImage:(UIImage *)image forRequest:(NSURLRequest *)request withAdditionalIdentifier:(NSString *)identifier {
     [self addImage:image withIdentifier:[self imageCacheKeyFromURLRequest:request withAdditionalIdentifier:identifier]];
 }

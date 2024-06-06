@@ -83,7 +83,7 @@
         NSAssert([config.diskCacheClass conformsToProtocol:@protocol(SDDiskCache)], @"Custom disk cache class must conform to `SDDiskCache` protocol");
         _diskCache = [[config.diskCacheClass alloc] initWithCachePath:_diskCachePath config:_config];
         
-        // Check and migrate disk cache directory if need
+        // Check and migrate(迁移) disk cache directory if need
         [self migrateDiskCacheDirectory];
 
 #if SD_UIKIT
@@ -113,7 +113,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - Cache paths
+#pragma mark - Disk Cache paths
 
 - (nullable NSString *)cachePathForKey:(nullable NSString *)key {
     if (!key) {
@@ -147,14 +147,24 @@
 - (void)storeImage:(nullable UIImage *)image
             forKey:(nullable NSString *)key
         completion:(nullable SDWebImageNoParamsBlock)completionBlock {
-    [self storeImage:image imageData:nil forKey:key toDisk:YES completion:completionBlock];
+    
+    [self storeImage:image
+           imageData:nil
+              forKey:key
+              toDisk:YES
+          completion:completionBlock];
 }
 
 - (void)storeImage:(nullable UIImage *)image
             forKey:(nullable NSString *)key
             toDisk:(BOOL)toDisk
         completion:(nullable SDWebImageNoParamsBlock)completionBlock {
-    [self storeImage:image imageData:nil forKey:key toDisk:toDisk completion:completionBlock];
+    
+    [self storeImage:image
+           imageData:nil
+              forKey:key
+              toDisk:toDisk
+          completion:completionBlock];
 }
 
 - (void)storeImage:(nullable UIImage *)image
@@ -162,7 +172,13 @@
             forKey:(nullable NSString *)key
             toDisk:(BOOL)toDisk
         completion:(nullable SDWebImageNoParamsBlock)completionBlock {
-    return [self storeImage:image imageData:imageData forKey:key toMemory:YES toDisk:toDisk completion:completionBlock];
+    
+    return [self storeImage:image
+                  imageData:imageData
+                     forKey:key
+                   toMemory:YES
+                     toDisk:toDisk
+                 completion:completionBlock];
 }
 
 - (void)storeImage:(nullable UIImage *)image
@@ -171,6 +187,7 @@
           toMemory:(BOOL)toMemory
             toDisk:(BOOL)toDisk
         completion:(nullable SDWebImageNoParamsBlock)completionBlock {
+    
     if (!image || !key) {
         if (completionBlock) {
             completionBlock();
@@ -189,17 +206,21 @@
                 NSData *data = imageData;
                 if (!data && [image conformsToProtocol:@protocol(SDAnimatedImage)]) {
                     // If image is custom animated image class, prefer its original animated data
+                    // 如果图像是自定义动画图像类，则首选其原始动画数据
                     data = [((id<SDAnimatedImage>)image) animatedImageData];
                 }
                 if (!data && image) {
                     // Check image's associated image format, may return .undefined
+                    // 检查图像的关联图像格式,可能返回 .undefined
                     SDImageFormat format = image.sd_imageFormat;
                     if (format == SDImageFormatUndefined) {
                         // If image is animated, use GIF (APNG may be better, but has bugs before macOS 10.14)
+                        // 如果图像是动画的，请使用 GIF（APNG 可能更好，但在 macOS 10.14 之前存在错误）
                         if (image.sd_isAnimated) {
                             format = SDImageFormatGIF;
                         } else {
                             // If we do not have any data to detect image format, check whether it contains alpha channel to use PNG or JPEG format
+                            // 如果我们没有任何数据来检测图像格式，请检查它是否包含使用 PNG 或 JPEG 格式的 alpha 通道
                             if ([SDImageCoderHelper CGImageContainsAlpha:image.CGImage]) {
                                 format = SDImageFormatPNG;
                             } else {
@@ -486,7 +507,7 @@
             }
             return;
         }
-        
+        // 会产生很多临时变量，自动释放 会尽快释放内存
         @autoreleasepool {
             NSData *diskData = [self diskImageDataBySearchingAllPathsForKey:key];
             UIImage *diskImage;

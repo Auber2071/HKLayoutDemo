@@ -67,6 +67,7 @@
 
 /**
  The image class which supports animating on `SDAnimatedImageView`. You can also use it on normal UIImageView/NSImageView.
+ 支持在“SDAnimatedImageView”上进行动画处理的图像类。您也可以在普通 UIImageView/NSImageView 上使用它。
  */
 @interface SDAnimatedImage : UIImage <SDAnimatedImage>
 

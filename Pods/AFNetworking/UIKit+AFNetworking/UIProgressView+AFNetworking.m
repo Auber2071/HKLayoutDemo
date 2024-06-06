@@ -39,7 +39,10 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
 }
 
 - (void)af_setUploadProgressAnimated:(BOOL)animated {
-    objc_setAssociatedObject(self, @selector(af_uploadProgressAnimated), @(animated), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self,
+                             @selector(af_uploadProgressAnimated),
+                             @(animated),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (BOOL)af_downloadProgressAnimated {
@@ -47,7 +50,10 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
 }
 
 - (void)af_setDownloadProgressAnimated:(BOOL)animated {
-    objc_setAssociatedObject(self, @selector(af_downloadProgressAnimated), @(animated), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self,
+                             @selector(af_downloadProgressAnimated),
+                             @(animated),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark -
@@ -59,8 +65,15 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
         return;
     }
     
-    [task addObserver:self forKeyPath:@"state" options:(NSKeyValueObservingOptions)0 context:AFTaskCountOfBytesSentContext];
-    [task addObserver:self forKeyPath:@"countOfBytesSent" options:(NSKeyValueObservingOptions)0 context:AFTaskCountOfBytesSentContext];
+    [task addObserver:self
+           forKeyPath:@"state"
+              options:(NSKeyValueObservingOptions)0
+              context:AFTaskCountOfBytesSentContext];
+    
+    [task addObserver:self
+           forKeyPath:@"countOfBytesSent"
+              options:(NSKeyValueObservingOptions)0
+              context:AFTaskCountOfBytesSentContext];
 
     [self af_setUploadProgressAnimated:animated];
 }
@@ -72,8 +85,13 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
         return;
     }
     
-    [task addObserver:self forKeyPath:@"state" options:(NSKeyValueObservingOptions)0 context:AFTaskCountOfBytesReceivedContext];
-    [task addObserver:self forKeyPath:@"countOfBytesReceived" options:(NSKeyValueObservingOptions)0 context:AFTaskCountOfBytesReceivedContext];
+    [task addObserver:self forKeyPath:@"state"
+              options:(NSKeyValueObservingOptions)0
+              context:AFTaskCountOfBytesReceivedContext];
+    
+    [task addObserver:self forKeyPath:@"countOfBytesReceived"
+              options:(NSKeyValueObservingOptions)0
+              context:AFTaskCountOfBytesReceivedContext];
 
     [self af_setDownloadProgressAnimated:animated];
 }
@@ -89,7 +107,8 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
         if ([keyPath isEqualToString:NSStringFromSelector(@selector(countOfBytesSent))]) {
             if ([object countOfBytesExpectedToSend] > 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self setProgress:[object countOfBytesSent] / ([object countOfBytesExpectedToSend] * 1.0f) animated:self.af_uploadProgressAnimated];
+                    [self setProgress:[object countOfBytesSent] / ([object countOfBytesExpectedToSend] * 1.0f)
+                             animated:self.af_uploadProgressAnimated];
                 });
             }
         }
@@ -97,7 +116,8 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
         if ([keyPath isEqualToString:NSStringFromSelector(@selector(countOfBytesReceived))]) {
             if ([object countOfBytesExpectedToReceive] > 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self setProgress:[object countOfBytesReceived] / ([object countOfBytesExpectedToReceive] * 1.0f) animated:self.af_downloadProgressAnimated];
+                    [self setProgress:[object countOfBytesReceived] / ([object countOfBytesExpectedToReceive] * 1.0f)
+                             animated:self.af_downloadProgressAnimated];
                 });
             }
         }
@@ -108,11 +128,13 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
                     [object removeObserver:self forKeyPath:NSStringFromSelector(@selector(state))];
 
                     if (context == AFTaskCountOfBytesSentContext) {
-                        [object removeObserver:self forKeyPath:NSStringFromSelector(@selector(countOfBytesSent))];
+                        [object removeObserver:self
+                                    forKeyPath:NSStringFromSelector(@selector(countOfBytesSent))];
                     }
 
                     if (context == AFTaskCountOfBytesReceivedContext) {
-                        [object removeObserver:self forKeyPath:NSStringFromSelector(@selector(countOfBytesReceived))];
+                        [object removeObserver:self
+                                    forKeyPath:NSStringFromSelector(@selector(countOfBytesReceived))];
                     }
                 }
                 @catch (NSException * __unused exception) {}

@@ -9,13 +9,12 @@
 #import "NSTimer+WeakTimer.h"
 #import <objc/runtime.h>
 
-#pragma mark - Proxy 方式
 
+#pragma mark - 中间件（接受者重定向）
 @interface PFProxy()
-
 @property (nonatomic, weak) id object;
-
 @end
+
 @implementation PFProxy
 
 - (instancetype)initWithObjc:(id)object {
@@ -48,15 +47,33 @@
 }
 @end
 
+#pragma mark - 中间件（传递target、selector）
+@interface TimerWeakObject : NSObject
+@property (nonatomic, weak) id target;
+@property (nonatomic, assign) SEL selector; // 定时器到时的回调方法
+@property (nonatomic, weak) NSTimer *timer;
+- (void)fire:(NSTimer *)timer;
+@end
+
+@implementation TimerWeakObject
+
+- (void)fire:(NSTimer *)timer {
+    if (self.target) {
+        if ([self.target respondsToSelector:self.selector]) {
+            [self.target performSelector:self.selector withObject:timer.userInfo];
+        }
+    } else {
+        [self.target  invalidate];
+    }
+}
+
+@end
+
 
 #pragma mark - block 方式
 
-static char code1Key;
-static char code2Key;
-static char code3Key;
-
-
 @implementation NSTimer (WeakTimer)
+#pragma  mark - 方式一
 /**
  * 该方案主要要点：
  *
@@ -89,7 +106,7 @@ static char code3Key;
 }
 
 
-
+#pragma  mark - 方式二
 + (NSTimer *)zx_scheduledTimerWithTimeInterval:(NSTimeInterval)ti
                                         target:(id)aTarget
                                       selector:(SEL)aSelector
@@ -105,41 +122,27 @@ static char code3Key;
 
 }
 
-#pragma mark - other
+#pragma  mark - 方式三
++ (NSTimer *)zx_scheduledWeakTimerWithTimeInterval:(NSTimeInterval)ti
+                                        target:(id)aTarget
+                                      selector:(SEL)aSelector
+                                      userInfo:(nullable id)userInfo
+                                       repeats:(BOOL)yesOrNo {
+    
+    TimerWeakObject *object = [[TimerWeakObject alloc] init];
+    object.target = aTarget;
+    object.selector = aSelector;
+    object.timer = [NSTimer scheduledTimerWithTimeInterval:ti
+                                                    target:object
+                                                  selector:@selector(fire:)
+                                                  userInfo:userInfo
+                                                   repeats:yesOrNo];
+    
+    return object.timer;
 
-- (void)setCode1:(NSInteger)code1 {
-    objc_setAssociatedObject(self, &code1Key, [NSNumber numberWithInteger:code1], OBJC_ASSOCIATION_ASSIGN);
 }
 
-- (NSInteger)code1 {
-    return [(NSNumber *)objc_getAssociatedObject(self, &code1Key) integerValue];
-}
-
-- (void)setCode2:(NSInteger)code2 {
-    objc_setAssociatedObject(self, &code2Key, [NSNumber numberWithInteger:code2], OBJC_ASSOCIATION_ASSIGN);
-}
-
-- (NSInteger)code2 {
-    return [(NSNumber *)objc_getAssociatedObject(self, &code2Key) integerValue];
-}
-
-- (void)removeAssociation {
-    objc_removeAssociatedObjects(self);
-}
 
 
 @end
-
-@implementation NSTimer (WeakTimer2)
-- (void)setCode3:(NSInteger)code3 {
-    objc_setAssociatedObject(self, &code3Key, [NSNumber numberWithInteger:code3], OBJC_ASSOCIATION_ASSIGN);
-}
-
-- (NSInteger)code3 {
-    return [(NSNumber *)objc_getAssociatedObject(self, &code3Key) integerValue];
-}
-
-@end
-
-
 

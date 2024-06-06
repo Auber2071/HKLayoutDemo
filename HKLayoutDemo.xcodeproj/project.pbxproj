@@ -30,6 +30,7 @@
 		5428872C2BA2B300009317A8 /* UINavigationController+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 5428872B2BA2B300009317A8 /* UINavigationController+Push.m */; };
 		54288AC02BA2CE4D009317A8 /* UIView+Rect.m in Sources */ = {isa = PBXBuildFile; fileRef = 54288ABF2BA2CE4D009317A8 /* UIView+Rect.m */; };
 		54288AC52BA2D5B7009317A8 /* HKOrientationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54288AC42BA2D5B7009317A8 /* HKOrientationViewController.m */; };
+		542E9EC52C09925F0085D6C3 /* HKGCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542E9EC42C09925F0085D6C3 /* HKGCDViewController.m */; };
 		544B09712BCE19EB00FA50F6 /* HKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 544B09702BCE19EB00FA50F6 /* HKWebViewController.m */; };
 		545BDE392B1A171B00E08AB1 /* NSObject+KVODefender.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE382B1A171B00E08AB1 /* NSObject+KVODefender.m */; };
 		545BDE3F2B1A18D900E08AB1 /* NSObject+MethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE3E2B1A18D900E08AB1 /* NSObject+MethodSwizzling.m */; };
@@ -38,6 +39,7 @@
 		545BDE4F2B1A2AB600E08AB1 /* NSObject+KVCDefender.m in Sources */ = {isa = PBXBuildFile; fileRef = 545BDE4E2B1A2AB600E08AB1 /* NSObject+KVCDefender.m */; };
 		547092102BD018D5006160EF /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 5470920F2BD018D5006160EF /* AlamofireDynamic */; };
 		547092192BD028CC006160EF /* HKTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547092182BD028CC006160EF /* HKTimerViewController.m */; };
+		5474648A2C08238700BE310C /* HKNetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547464892C08238700BE310C /* HKNetViewController.m */; };
 		5487F00E2BCE0D7800700FCF /* HKReadWhiteSafeDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5487F00D2BCE0D7800700FCF /* HKReadWhiteSafeDic.m */; };
 		54AC84D52BEB692000F6A48B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 54AC84D42BEB692000F6A48B /* SnapKit */; };
 		54AC84D72BEB692000F6A48B /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 54AC84D62BEB692000F6A48B /* SnapKit-Dynamic */; };
@@ -148,6 +150,8 @@
 		54288ABF2BA2CE4D009317A8 /* UIView+Rect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Rect.m"; sourceTree = "<group>"; };
 		54288AC32BA2D5B7009317A8 /* HKOrientationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKOrientationViewController.h; sourceTree = "<group>"; };
 		54288AC42BA2D5B7009317A8 /* HKOrientationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKOrientationViewController.m; sourceTree = "<group>"; };
+		542E9EC32C09925F0085D6C3 /* HKGCDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKGCDViewController.h; sourceTree = "<group>"; };
+		542E9EC42C09925F0085D6C3 /* HKGCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKGCDViewController.m; sourceTree = "<group>"; };
 		544B096F2BCE19EB00FA50F6 /* HKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKWebViewController.h; sourceTree = "<group>"; };
 		544B09702BCE19EB00FA50F6 /* HKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKWebViewController.m; sourceTree = "<group>"; };
 		545BDE372B1A171B00E08AB1 /* NSObject+KVODefender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVODefender.h"; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 		547092172BD028CC006160EF /* HKTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKTimerViewController.h; sourceTree = "<group>"; };
 		547092182BD028CC006160EF /* HKTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKTimerViewController.m; sourceTree = "<group>"; };
 		5470921B2BD02BF1006160EF /* Weakify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weakify.h; sourceTree = "<group>"; };
+		547464882C08238700BE310C /* HKNetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKNetViewController.h; sourceTree = "<group>"; };
+		547464892C08238700BE310C /* HKNetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKNetViewController.m; sourceTree = "<group>"; };
 		5487F00C2BCE0D7800700FCF /* HKReadWhiteSafeDic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKReadWhiteSafeDic.h; sourceTree = "<group>"; };
 		5487F00D2BCE0D7800700FCF /* HKReadWhiteSafeDic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKReadWhiteSafeDic.m; sourceTree = "<group>"; };
 		54AC84F12BEB6F5400F6A48B /* HKTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTabBar.m; sourceTree = "<group>"; };
@@ -300,6 +306,10 @@
 				54288AC42BA2D5B7009317A8 /* HKOrientationViewController.m */,
 				547092172BD028CC006160EF /* HKTimerViewController.h */,
 				547092182BD028CC006160EF /* HKTimerViewController.m */,
+				547464882C08238700BE310C /* HKNetViewController.h */,
+				547464892C08238700BE310C /* HKNetViewController.m */,
+				542E9EC32C09925F0085D6C3 /* HKGCDViewController.h */,
+				542E9EC42C09925F0085D6C3 /* HKGCDViewController.m */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -663,12 +673,14 @@
 				542887282BA2AF33009317A8 /* HKBaseViewController.m in Sources */,
 				545BDE422B1A19D400E08AB1 /* HKKVCDemo.m in Sources */,
 				54288AC02BA2CE4D009317A8 /* UIView+Rect.m in Sources */,
+				5474648A2C08238700BE310C /* HKNetViewController.m in Sources */,
 				54288AC52BA2D5B7009317A8 /* HKOrientationViewController.m in Sources */,
 				262B8C1424C89326001EF1E0 /* HKNavigationController.m in Sources */,
 				54CE89FD2B1601480089D7EF /* NSTimer+WeakTimer.m in Sources */,
 				545BDE3F2B1A18D900E08AB1 /* NSObject+MethodSwizzling.m in Sources */,
 				2B86A6532086ECD40040A6F1 /* HKNormalViewController.m in Sources */,
 				544B09712BCE19EB00FA50F6 /* HKWebViewController.m in Sources */,
+				542E9EC52C09925F0085D6C3 /* HKGCDViewController.m in Sources */,
 				54AC84F62BEB6F8B00F6A48B /* HKButton.m in Sources */,
 				2B0FA12A2085C8830041FBE2 /* AppDelegate.m in Sources */,
 				2B86A6562086ECE40040A6F1 /* HKScrollViewController.m in Sources */,

@@ -27,9 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - block 方式
 
 @interface NSTimer (WeakTimer)
-@property (nonatomic, assign) NSInteger code1;
-
-@property (nonatomic, assign) NSInteger code2;
 
 + (NSTimer *)zx_scheduledTimerWithTimeInterval:(NSTimeInterval)timeInterval
                                        repeats:(BOOL)repeats
@@ -42,16 +39,14 @@ NS_ASSUME_NONNULL_BEGIN
                                       selector:(SEL)aSelector
                                       userInfo:(nullable id)userInfo
                                        repeats:(BOOL)yesOrNo;
-    
 
-- (void)removeAssociation;
+
++ (NSTimer *)zx_scheduledWeakTimerWithTimeInterval:(NSTimeInterval)ti
+                                            target:(id)aTarget
+                                          selector:(SEL)aSelector
+                                          userInfo:(nullable id)userInfo
+                                           repeats:(BOOL)yesOrNo;
 @end
-
-@interface NSTimer (WeakTimer2)
-@property (nonatomic, assign) NSInteger code3;
-@end
-
-
 
 
 

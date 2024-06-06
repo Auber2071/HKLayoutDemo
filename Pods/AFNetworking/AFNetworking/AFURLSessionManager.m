@@ -1244,6 +1244,22 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     // 设置临时变量保存数据
     BOOL evaluateServerTrust = NO;
+/*
+    Use the specified credential, which may be nil
+    NSURLSessionAuthChallengeUseCredential = 0,
+    
+    Default handling for the challenge - as if this delegate were not implemented;
+    the credential parameter is ignored.
+    NSURLSessionAuthChallengePerformDefaultHandling = 1,
+    
+    The entire request will be canceled; the credential parameter is ignored.
+    NSURLSessionAuthChallengeCancelAuthenticationChallenge = 2,
+    
+    This challenge is rejected and the next authentication protection space should be tried;
+    the credential parameter is ignored
+    NSURLSessionAuthChallengeRejectProtectionSpace = 3,
+*/
+    
     NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
     NSURLCredential *credential = nil;
 
@@ -1260,10 +1276,12 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
         } else if ([result isKindOfClass:NSURLCredential.class]) {
             credential = result;
             disposition = NSURLSessionAuthChallengeUseCredential;
+            
         } else if ([result isKindOfClass:NSNumber.class]) {
             disposition = [result integerValue];
             NSAssert(disposition == NSURLSessionAuthChallengePerformDefaultHandling || disposition == NSURLSessionAuthChallengeCancelAuthenticationChallenge || disposition == NSURLSessionAuthChallengeRejectProtectionSpace, @"");
             evaluateServerTrust = disposition == NSURLSessionAuthChallengePerformDefaultHandling && [challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+            
         } else {
             @throw [NSException exceptionWithName:@"Invalid Return Value" reason:@"The return value from the authentication challenge handler must be nil, an NSError, an NSURLCredential or an NSNumber." userInfo:nil];
         }

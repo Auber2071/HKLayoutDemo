@@ -99,6 +99,7 @@ typedef void(^SDSetImageBlock)(UIImage * _Nullable image, NSData * _Nullable ima
 /**
  The image indicator during the image loading. If you do not need indicator, specify nil. Defaults to nil
  The setter will remove the old indicator view and add new indicator view to current view's subview.
+ 图像加载期间的图像指示器。如果不需要指标，请指定 nil。默认值为 nil 设置者将删除旧的指标视图，并将新的指标视图添加到当前视图的子视图中。
  @note Because this is UI related, you should access only from the main queue.
  */
 @property (nonatomic, strong, nullable) id<SDWebImageIndicator> sd_imageIndicator;

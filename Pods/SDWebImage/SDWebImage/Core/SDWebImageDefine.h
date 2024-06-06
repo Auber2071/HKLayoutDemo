@@ -52,35 +52,56 @@ FOUNDATION_EXPORT UIImage * _Nullable SDScaledImageForScaleFactor(CGFloat scale,
 typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     /**
      * By default, when a URL fail to be downloaded, the URL is blacklisted so the library won't keep trying.
+     * 默认情况下，当 URL 下载失败时，该 URL 将被列入黑名单，因此库不会继续尝试。
+     *
      * This flag disable this blacklisting.
+     * 此标志禁用此黑名单。
      */
     SDWebImageRetryFailed = 1 << 0,
     
     /**
      * By default, image downloads are started during UI interactions, this flags disable this feature,
      * leading to delayed download on UIScrollView deceleration for instance.
+     * 默认情况下，图像下载是在 UI 交互期间启动的，这会标记禁用此功能，例如，导致 UIScrollView 上的下载延迟减速。
      */
     SDWebImageLowPriority = 1 << 1,
     
     /**
      * This flag enables progressive download, the image is displayed progressively during download as a browser would do.
+     * 此标志启用渐进式下载，图像在下载过程中会像浏览器一样逐步显示。
+     *
      * By default, the image is only displayed once completely downloaded.
+     * 默认情况下，图像仅在完全下载后显示
      */
     SDWebImageProgressiveLoad = 1 << 2,
     
     /**
      * Even if the image is cached, respect the HTTP response cache control, and refresh the image from remote location if needed.
+     * 即使图像已缓存，也要遵循 HTTP 响应缓存控件，并根据需要从远程位置刷新图像。
+     *
      * The disk caching will be handled by NSURLCache instead of SDWebImage leading to slight performance degradation.
+     * 磁盘缓存将由 NSURLCache 而不是 SDWebImage 处理，从而导致性能略有下降。
+     *
      * This option helps deal with images changing behind the same request URL, e.g. Facebook graph api profile pics.
+     * 此选项有助于处理在同一请求 URL 后面更改的图像，例如 Facebook 图形 api 个人资料图片。
+     *
      * If a cached image is refreshed, the completion block is called once with the cached image and again with the final image.
+     * 如果刷新缓存的图像，则会使用缓存的图像调用一次完成块，并使用最终图像调用一次完成块。
      *
      * Use this flag only if you can't make your URLs static with embedded cache busting parameter.
+     * 仅当无法使用嵌入式缓存破坏参数使 URL 保持静态时，才使用此标志。
      */
     SDWebImageRefreshCached = 1 << 3,
     
     /**
-     * In iOS 4+, continue the download of the image if the app goes to background. This is achieved by asking the system for
-     * extra time in background to let the request finish. If the background task expires the operation will be cancelled.
+     * In iOS 4+, continue the download of the image if the app goes to background.
+     * 在iOS 4+中，如果应用程序进入后台，请继续下载图像。
+     *
+     * This is achieved by asking the system for extra time in background to let the request finish.
+     * 这是通过在后台要求系统提供额外的时间以完成请求来实现的。
+     *
+     * If the background task expires the operation will be cancelled.
+     * 如果后台任务过期,操作将被取消。
      */
     SDWebImageContinueInBackground = 1 << 4,
     
@@ -103,8 +124,11 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     SDWebImageHighPriority = 1 << 7,
     
     /**
-     * By default, placeholder images are loaded while the image is loading. This flag will delay the loading
-     * of the placeholder image until after the image has finished loading.
+     * By default, placeholder images are loaded while the image is loading. 
+     * 默认情况下,图像加载时会加载占位符图像。
+     *
+     * This flag will delay the loading of the placeholder image until after the image has finished loading.
+     * 此标志会延迟占位符图像的加载，直到图像完成加载。
      */
     SDWebImageDelayPlaceholder = 1 << 8,
     
@@ -161,6 +185,7 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     
     /**
      * By default, when you use `SDWebImageTransition` to do some view transition after the image load finished, this transition is only applied for image download from the network. This mask can force to apply view transition for memory and disk cache as well.
+     * 默认情况下，当您在图像加载完成后使用“SDWebImageTransition”执行某些视图转换时，此转换仅适用于从网络下载图像。此掩码也可以强制应用内存和磁盘缓存的视图转换。
      */
     SDWebImageForceTransition = 1 << 17,
     

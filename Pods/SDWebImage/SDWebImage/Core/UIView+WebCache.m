@@ -16,6 +16,7 @@ const int64_t SDWebImageProgressUnitCountUnknown = 1LL;
 
 @implementation UIView (WebCache)
 
+#pragma mark - Association(关联对象)
 - (nullable NSURL *)sd_imageURL {
     return objc_getAssociatedObject(self, @selector(sd_imageURL));
 }
@@ -45,6 +46,7 @@ const int64_t SDWebImageProgressUnitCountUnknown = 1LL;
     objc_setAssociatedObject(self, @selector(sd_imageProgress), sd_imageProgress, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+#pragma mark - 
 - (void)sd_internalSetImageWithURL:(nullable NSURL *)url
                   placeholderImage:(nullable UIImage *)placeholder
                            options:(SDWebImageOptions)options
@@ -55,13 +57,14 @@ const int64_t SDWebImageProgressUnitCountUnknown = 1LL;
     context = [context copy]; // copy to avoid mutable object
     NSString *validOperationKey = context[SDWebImageContextSetImageOperationKey];
     if (!validOperationKey) {
-        validOperationKey = NSStringFromClass([self class]);
+        validOperationKey = NSStringFromClass([self class]);// UIImageView
     }
+    
     self.sd_latestOperationKey = validOperationKey;
     [self sd_cancelImageLoadOperationWithKey:validOperationKey];
     self.sd_imageURL = url;
     
-    if (!(options & SDWebImageDelayPlaceholder)) {
+    if (!(options & SDWebImageDelayPlaceholder)) {    
         dispatch_main_async_safe(^{
             [self sd_setImage:placeholder imageData:nil basedOnClassOrViaCustomSetImageBlock:setImageBlock cacheType:SDImageCacheTypeNone imageURL:url];
         });
@@ -124,6 +127,7 @@ const int64_t SDWebImageProgressUnitCountUnknown = 1LL;
 #endif
             
             BOOL shouldCallCompletedBlock = finished || (options & SDWebImageAvoidAutoSetImage);
+            // 是否需要设置
             BOOL shouldNotSetImage = ((image && (options & SDWebImageAvoidAutoSetImage)) ||
                                       (!image && !(options & SDWebImageDelayPlaceholder)));
             SDWebImageNoParamsBlock callCompletedBlockClojure = ^{

@@ -33,7 +33,7 @@
 
 @implementation UIButton (_AFNetworking)
 
-#pragma mark -
+#pragma mark - af_imageDownload
 
 static char AFImageDownloadReceiptNormal;
 static char AFImageDownloadReceiptHighlighted;
@@ -64,7 +64,7 @@ static const char * af_imageDownloadReceiptKeyForState(UIControlState state) {
     objc_setAssociatedObject(self, af_imageDownloadReceiptKeyForState(state), imageDownloadReceipt, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-#pragma mark -
+#pragma mark - af_backgroundImageDownload
 
 static char AFBackgroundImageDownloadReceiptNormal;
 static char AFBackgroundImageDownloadReceiptHighlighted;
@@ -110,7 +110,7 @@ static const char * af_backgroundImageDownloadReceiptKeyForState(UIControlState 
     objc_setAssociatedObject([UIButton class], @selector(sharedImageDownloader), imageDownloader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-#pragma mark -
+#pragma mark - setImage
 
 - (void)setImageForState:(UIControlState)state
                  withURL:(NSURL *)url
@@ -189,7 +189,7 @@ static const char * af_backgroundImageDownloadReceiptKeyForState(UIControlState 
     }
 }
 
-#pragma mark -
+#pragma mark - setBackgroundImage
 
 - (void)setBackgroundImageForState:(UIControlState)state
                            withURL:(NSURL *)url
@@ -268,7 +268,7 @@ static const char * af_backgroundImageDownloadReceiptKeyForState(UIControlState 
     }
 }
 
-#pragma mark -
+#pragma mark - cancel Image && BackgroundImage Download
 
 - (void)cancelImageDownloadTaskForState:(UIControlState)state {
     AFImageDownloadReceipt *receipt = [self af_imageDownloadReceiptForState:state];

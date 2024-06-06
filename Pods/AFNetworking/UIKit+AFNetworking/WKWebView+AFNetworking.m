@@ -86,7 +86,12 @@
            progress:(NSProgress * _Nullable __autoreleasing * _Nullable)progress
             success:(nullable NSString * (^)(NSHTTPURLResponse *response, NSString *HTML))success
             failure:(nullable void (^)(NSError *error))failure {
-    [self loadRequest:request navigation:navigation MIMEType:nil textEncodingName:nil progress:progress success:^NSData * _Nonnull(NSHTTPURLResponse * _Nonnull response, NSData * _Nonnull data) {
+    [self loadRequest:request
+           navigation:navigation
+             MIMEType:nil
+     textEncodingName:nil
+             progress:progress
+              success:^NSData * _Nonnull(NSHTTPURLResponse * _Nonnull response, NSData * _Nonnull data) {
         NSStringEncoding stringEncoding = NSUTF8StringEncoding;
         if (response.textEncodingName) {
             CFStringEncoding encoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)response.textEncodingName);

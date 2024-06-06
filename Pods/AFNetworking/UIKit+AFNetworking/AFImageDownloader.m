@@ -26,6 +26,7 @@
 #import "AFImageDownloader.h"
 #import "AFHTTPSessionManager.h"
 
+#pragma mark - AFImageDownloaderResponseHandler
 @interface AFImageDownloaderResponseHandler : NSObject
 @property (nonatomic, strong) NSUUID *uuid;
 @property (nonatomic, copy) void (^successBlock)(NSURLRequest *, NSHTTPURLResponse *, UIImage *);
@@ -51,6 +52,7 @@
 
 @end
 
+#pragma mark - AFImageDownloaderMergedTask
 @interface AFImageDownloaderMergedTask : NSObject
 @property (nonatomic, strong) NSString *URLIdentifier;
 @property (nonatomic, strong) NSUUID *identifier;
@@ -81,6 +83,7 @@
 
 @end
 
+#pragma mark - AFImageDownloadReceipt
 @implementation AFImageDownloadReceipt
 
 - (instancetype)initWithReceiptID:(NSUUID *)receiptID task:(NSURLSessionDataTask *)task {
@@ -93,6 +96,7 @@
 
 @end
 
+#pragma mark - AFImageDownloader
 @interface AFImageDownloader ()
 
 @property (nonatomic, strong) dispatch_queue_t synchronizationQueue;
@@ -220,7 +224,9 @@
         // 1) Append the success and failure blocks to a pre-existing request if it already exists
         AFImageDownloaderMergedTask *existingMergedTask = self.mergedTasks[URLIdentifier];
         if (existingMergedTask != nil) {
-            AFImageDownloaderResponseHandler *handler = [[AFImageDownloaderResponseHandler alloc] initWithUUID:receiptID success:success failure:failure];
+            AFImageDownloaderResponseHandler *handler = [[AFImageDownloaderResponseHandler alloc] initWithUUID:receiptID
+                                                                                                       success:success
+                                                                                                       failure:failure];
             [existingMergedTask addResponseHandler:handler];
             task = existingMergedTask.task;
             return;

@@ -353,6 +353,7 @@ static void * SDWebImageDownloaderContext = &SDWebImageDownloaderContext;
         operation.queuePriority = NSOperationQueuePriorityLow;
     }
     
+    // 下载任务优先级的控制
     if (self.config.executionOrder == SDWebImageDownloaderLIFOExecutionOrder) {
         // Emulate LIFO execution order by systematically, each previous adding operation can dependency the new operation
         // This can gurantee the new operation to be execulated firstly, even if when some operations finished, meanwhile you appending new operations

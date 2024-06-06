@@ -52,4 +52,6 @@ target 'HKLayoutDemo' do
   pod 'HandyAutoLayout'
   pod 'HandyFrame'
   pod 'YYCache'
+  pod 'YYModel'
+  pod 'YYImage'
 end
