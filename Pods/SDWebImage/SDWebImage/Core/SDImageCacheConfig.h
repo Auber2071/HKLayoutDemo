@@ -50,17 +50,15 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
 /**
  * Whether or not to use memory cache
  * @note When the memory cache is disabled, the weak memory cache will also be disabled.
- * 当内存缓存被禁用时，弱内存缓存也将被禁用。
  * Defaults to YES.
  */
 @property (assign, nonatomic) BOOL shouldCacheImagesInMemory;
 
 /*
  * The option to control weak memory cache for images. When enable, `SDImageCache`'s memory cache will use a weak maptable to store the image at the same time when it stored to memory, and get removed at the same time.
- 用于控制图像的弱内存缓存的选项。启用后，“SDImageCache”的内存缓存将使用弱映射表在存储到内存时同时存储图像，并同时删除图像。
- 
  * However when memory warning is triggered, since the weak maptable does not hold a strong reference to image instance, even when the memory cache itself is purged, some images which are held strongly by UIImageViews or other live instances can be recovered again, to avoid later re-query from disk cache or network. This may be helpful for the case, for example, when app enter background and memory is purged, cause cell flashing after re-enter foreground.
- * Defautls to YES. You can change this option dynamically.
+ * When enabling this option, we will sync back the image from weak maptable to strong cache during next time top level `sd_setImage` function call.
+ * Defaults to NO (YES before 5.12.0 version). You can change this option dynamically.
  */
 @property (assign, nonatomic) BOOL shouldUseWeakMemoryCache;
 
@@ -69,6 +67,12 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
  * Defaults to YES.
  */
 @property (assign, nonatomic) BOOL shouldRemoveExpiredDataWhenEnterBackground;
+
+/**
+ * Whether or not to remove the expired disk data when application been terminated. This operation is processed in sync to ensure clean up.
+ * Defaults to YES.
+ */
+@property (assign, nonatomic) BOOL shouldRemoveExpiredDataWhenTerminate;
 
 /**
  * The reading options while reading cache from disk.
@@ -84,14 +88,8 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
 
 /**
  * The maximum length of time to keep an image in the disk cache, in seconds.
- * 将映像保留在磁盘缓存中的最大时间长度（以秒为单位）。
- *
  * Setting this to a negative value means no expiring.
- * 将此值设置为负值意味着不会过期。
- *
  * Setting this to zero means that all cached files would be removed when do expiration check.
- * 将此值设置为零意味着在执行过期检查时将删除所有缓存文件。
- *
  * Defaults to 1 week.
  */
 @property (assign, nonatomic) NSTimeInterval maxDiskAge;
@@ -104,8 +102,6 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
 
 /**
  * The maximum "total cost" of the in-memory image cache. The cost function is the bytes size held in memory.
- * 内存中映像缓存的最大“总成本”。成本函数是内存中保存的字节大小。
- *
  * @note The memory cost is bytes size in memory, but not simple pixels count. For common ARGB8888 image, one pixel is 4 bytes (32 bits).
  * Defaults to 0. Which means there is no memory cost limit.
  */
@@ -113,14 +109,12 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
 
 /**
  * The maximum number of objects in-memory image cache should hold.
- * 内存图像缓存中对象的最大数量应该保持。
  * Defaults to 0. Which means there is no memory count limit.
  */
 @property (assign, nonatomic) NSUInteger maxMemoryCount;
 
 /*
  * The attribute which the clear cache will be checked against when clearing the disk cache
- * 清除磁盘缓存时检查清除缓存的属性
  * Default is Modified Date
  */
 @property (assign, nonatomic) SDImageCacheConfigExpireType diskCacheExpireType;
@@ -128,22 +122,31 @@ typedef NS_ENUM(NSUInteger, SDImageCacheConfigExpireType) {
 /**
  * The custom file manager for disk cache. Pass nil to let disk cache choose the proper file manager.
  * Defaults to nil.
- * @note This value does not support dynamic changes. Which means further modification on this value after cache initlized has no effect.
+ * @note This value does not support dynamic changes. Which means further modification on this value after cache initialized has no effect.
  * @note Since `NSFileManager` does not support `NSCopying`. We just pass this by reference during copying. So it's not recommend to set this value on `defaultCacheConfig`.
  */
 @property (strong, nonatomic, nullable) NSFileManager *fileManager;
 
 /**
+ * The dispatch queue attr for ioQueue. You can config the QoS and concurrent/serial to internal IO queue. The ioQueue is used by SDImageCache to access read/write for disk data.
+ * Defaults we use `DISPATCH_QUEUE_SERIAL`(NULL) under iOS 10, `DISPATCH_QUEUE_SERIAL_WITH_AUTORELEASE_POOL` above and equal iOS 10, using serial dispatch queue is to ensure single access for disk data. It's safe but may be slow.
+ * @note You can override this to use `DISPATCH_QUEUE_CONCURRENT`, use concurrent queue.
+ * @warning **MAKE SURE** to keep `diskCacheWritingOptions` to use `NSDataWritingAtomic`, or concurrent queue may cause corrupted disk data (because multiple threads read/write same file without atomic is not IO-safe).
+ * @note This value does not support dynamic changes. Which means further modification on this value after cache initialized has no effect.
+ */
+@property (strong, nonatomic, nullable) dispatch_queue_attr_t ioQueueAttributes;
+
+/**
  * The custom memory cache class. Provided class instance must conform to `SDMemoryCache` protocol to allow usage.
  * Defaults to built-in `SDMemoryCache` class.
- * @note This value does not support dynamic changes. Which means further modification on this value after cache initlized has no effect.
+ * @note This value does not support dynamic changes. Which means further modification on this value after cache initialized has no effect.
  */
 @property (assign, nonatomic, nonnull) Class memoryCacheClass;
 
 /**
  * The custom disk cache class. Provided class instance must conform to `SDDiskCache` protocol to allow usage.
  * Defaults to built-in `SDDiskCache` class.
- * @note This value does not support dynamic changes. Which means further modification on this value after cache initlized has no effect.
+ * @note This value does not support dynamic changes. Which means further modification on this value after cache initialized has no effect.
  */
 @property (assign ,nonatomic, nonnull) Class diskCacheClass;
 

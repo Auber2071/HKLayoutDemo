@@ -13,13 +13,15 @@
 
 static void * SDMemoryCacheContext = &SDMemoryCacheContext;
 
-@interface SDMemoryCache <KeyType, ObjectType> ()
+@interface SDMemoryCache <KeyType, ObjectType> () {
+#if SD_UIKIT
+    SD_LOCK_DECLARE(_weakCacheLock); // a lock to keep the access to `weakCache` thread-safe
+#endif
+}
 
 @property (nonatomic, strong, nullable) SDImageCacheConfig *config;
 #if SD_UIKIT
-// 不使用NSDictionary 而使用NSMapTable, 因为mapTable能够提供更多的内存语义
 @property (nonatomic, strong, nonnull) NSMapTable<KeyType, ObjectType> *weakCache; // strong-weak cache
-@property (nonatomic, strong, nonnull) dispatch_semaphore_t weakCacheLock; // a lock to keep the access to `weakCache` thread-safe
 #endif
 @end
 
@@ -62,7 +64,7 @@ static void * SDMemoryCacheContext = &SDMemoryCacheContext;
 
 #if SD_UIKIT
     self.weakCache = [[NSMapTable alloc] initWithKeyOptions:NSPointerFunctionsStrongMemory valueOptions:NSPointerFunctionsWeakMemory capacity:0];
-    self.weakCacheLock = dispatch_semaphore_create(1);
+    SD_LOCK_INIT(_weakCacheLock);
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveMemoryWarning:)
@@ -84,12 +86,11 @@ static void * SDMemoryCacheContext = &SDMemoryCacheContext;
     if (!self.config.shouldUseWeakMemoryCache) {
         return;
     }
-    // 以空间换取时间，如果NSCache中的释放了，自己的mapTable中还有存储一份，这样就可以不用再去请求了
     if (key && obj) {
         // Store weak cache
-        SD_LOCK(self.weakCacheLock);
+        SD_LOCK(_weakCacheLock);
         [self.weakCache setObject:obj forKey:key];
-        SD_UNLOCK(self.weakCacheLock);
+        SD_UNLOCK(_weakCacheLock);
     }
 }
 
@@ -99,13 +100,10 @@ static void * SDMemoryCacheContext = &SDMemoryCacheContext;
         return obj;
     }
     if (key && !obj) {
-        //<OS_dispatch_semaphore: semaphore[0x600002106df0] = { xref = 1, ref = 1, port = 0x0, value = 1, orig = 1 }>
         // Check weak cache
-        SD_LOCK(self.weakCacheLock);
-        //<OS_dispatch_semaphore: semaphore[0x600002106df0] = { xref = 1, ref = 1, port = 0x0, value = 0, orig = 1 }>
+        SD_LOCK(_weakCacheLock);
         obj = [self.weakCache objectForKey:key];
-        SD_UNLOCK(self.weakCacheLock);
-        //<OS_dispatch_semaphore: semaphore[0x600002106df0] = { xref = 1, ref = 1, port = 0x0, value = 1, orig = 1 }>
+        SD_UNLOCK(_weakCacheLock);
         if (obj) {
             // Sync cache
             NSUInteger cost = 0;
@@ -115,7 +113,6 @@ static void * SDMemoryCacheContext = &SDMemoryCacheContext;
             [super setObject:obj forKey:key cost:cost];
         }
     }
-
     return obj;
 }
 
@@ -126,9 +123,9 @@ static void * SDMemoryCacheContext = &SDMemoryCacheContext;
     }
     if (key) {
         // Remove weak cache
-        SD_LOCK(self.weakCacheLock);
+        SD_LOCK(_weakCacheLock);
         [self.weakCache removeObjectForKey:key];
-        SD_UNLOCK(self.weakCacheLock);
+        SD_UNLOCK(_weakCacheLock);
     }
 }
 
@@ -138,9 +135,9 @@ static void * SDMemoryCacheContext = &SDMemoryCacheContext;
         return;
     }
     // Manually remove should also remove weak cache
-    SD_LOCK(self.weakCacheLock);
+    SD_LOCK(_weakCacheLock);
     [self.weakCache removeAllObjects];
-    SD_UNLOCK(self.weakCacheLock);
+    SD_UNLOCK(_weakCacheLock);
 }
 #endif
 
@@ -150,12 +147,9 @@ static void * SDMemoryCacheContext = &SDMemoryCacheContext;
     if (context == SDMemoryCacheContext) {
         if ([keyPath isEqualToString:NSStringFromSelector(@selector(maxMemoryCost))]) {
             self.totalCostLimit = self.config.maxMemoryCost;
-            
         } else if ([keyPath isEqualToString:NSStringFromSelector(@selector(maxMemoryCount))]) {
             self.countLimit = self.config.maxMemoryCount;
-            
         }
-        
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
