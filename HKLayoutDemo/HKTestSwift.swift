@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+struct MyClass {
+    let age = 1
+    let name = "tom"
+    
+    func testOfClass() {
+        
+    }
+    
+}
+
+extension MyClass {
+    
+    func test1OfClass() {
+        
+    }
+}

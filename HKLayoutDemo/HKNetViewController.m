@@ -30,6 +30,8 @@
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.right.mas_equalTo(self.view);
     }];
+    
+    //((SDImageCache *)[SDWebImageManager sharedManager].imageCache).config.shouldUseWeakMemoryCache = YES;
 }
 
 
@@ -39,8 +41,7 @@
     NSString *imgUrl = @"https://img2.baidu.com/it/u=3178257605,3200738192&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1730";
     //[self.imgView setImageWithURL: [NSURL URLWithString:imgUrl]];
     
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:[UIImage imageNamed:@"tabBar_setting_click_icon"] options:SDWebImageDelayPlaceholder];
-    
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:[UIImage imageNamed:@"tabBar_setting_click_icon"]];
     return;
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

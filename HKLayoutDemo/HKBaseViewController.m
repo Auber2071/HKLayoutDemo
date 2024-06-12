@@ -52,8 +52,8 @@
 //        [invocation invoke];
 //    }
     
-    [[UIApplication sharedApplication] setStatusBarOrientation:orientation animated:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden: orientation != UIInterfaceOrientationPortrait];
+//    [[UIApplication sharedApplication] setStatusBarOrientation:orientation animated:YES];
+//    [[UIApplication sharedApplication] setStatusBarHidden: orientation != UIInterfaceOrientationPortrait];
 }
 
 

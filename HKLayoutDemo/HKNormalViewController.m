@@ -27,11 +27,11 @@
 @implementation HKNormalViewController
 
 + (void)load {
-    NSLog(@"load------%s", __func__);
+//    NSLog(@"load------%s", __func__);
 }
 
 + (void)initialize {
-    NSLog(@"initialize--------%s", __func__);
+//    NSLog(@"initialize--------%s", __func__);
 }
 
 
@@ -50,7 +50,7 @@
     //    [self methodSemaphoreSafe];
     //    [self methoddBlock2];
     
-    [self threadTest];
+//    [self threadTest];
     //    [self operationTestDemo];
     //    [self mutBlock3];
     //    [self mutBlock4:^{
@@ -195,7 +195,7 @@
 
 - (void)threadTest {
     _queue = dispatch_queue_create("com.htmi.Zc", DISPATCH_QUEUE_CONCURRENT);
-    //    [self barrier];
+//        [self barrier];
     NSLog(@"currentThread：%@", [NSThread currentThread]);
     //主线程
     [self performSelector:@selector(printLog) withObject:nil afterDelay:1];
@@ -826,22 +826,22 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
 }
 
 - (void)buttonClick {

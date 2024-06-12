@@ -17,11 +17,11 @@
 @implementation HKWebViewController
 
 + (void)load {
-    NSLog(@"load------%s", __func__);
+//    NSLog(@"load------%s", __func__);
 }
 
 + (void)initialize {
-    NSLog(@"initialize--------%s", __func__);
+//    NSLog(@"initialize--------%s", __func__);
 }
 
 - (void)viewDidLoad {
